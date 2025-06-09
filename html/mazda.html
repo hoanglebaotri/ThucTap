@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> MAZDA</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#00a3e0", secondary: "#242424" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Montserrat', sans-serif;
+      }
+      .scroll-indicator {
+          animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+          40% {transform: translateY(-10px);}
+          60% {transform: translateY(-5px);}
+      }
+      .feature-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .feature-icon {
+          transition: all 0.3s ease;
+      }
+      .feature-card:hover .feature-icon {
+          transform: scale(1.1);
+      }
+      .gallery-item {
+          cursor: pointer;
+          overflow: hidden;
+      }
+      .gallery-item img {
+          transition: transform 0.5s ease;
+      }
+      .gallery-item:hover img {
+          transform: scale(1.05);
+      }
+      .hotspot {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: rgba(0, 163, 224, 0.8);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          animation: pulse 2s infinite;
+      }
+      .hotspot:hover {
+          transform: scale(1.2);
+      }
+      @keyframes pulse {
+          0% {
+              box-shadow: 0 0 0 0 rgba(0, 163, 224, 0.7);
+          }
+          70% {
+              box-shadow: 0 0 0 10px rgba(0, 163, 224, 0);
+          }
+          100% {
+              box-shadow: 0 0 0 0 rgba(0, 163, 224, 0);
+          }
+      }
+      .color-option {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+      }
+      .color-option:hover, .color-option.active {
+          transform: scale(1.2);
+          border: 2px solid #00a3e0;
+      }
+      .tab-button {
+          position: relative;
+      }
+      .tab-button::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: #00a3e0;
+          transition: width 0.3s ease;
+      }
+      .tab-button.active::after {
+          width: 100%;
+      }
+      .custom-select {
+          position: relative;
+          display: inline-block;
+      }
+      .select-selected {
+          background-color: white;
+      }
+      .select-items {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          z-index: 99;
+          background-color: white;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+          display: none;
+      }
+      .select-items div {
+          padding: 8px 16px;
+          cursor: pointer;
+      }
+      .select-items div:hover {
+          background-color: rgba(0, 163, 224, 0.1);
+      }
+      .select-hide {
+          display: none;
+      }
+      .select-items.select-show {
+          display: block;
+      }
+
+      .logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;            
+            padding: 10px;
+            text-decoration: none; 
+            display: inline-block;
+            margin-right: 100px;
+        }
+
+        .logo .buy {
+            color: #ff8a00; 
+        }
+
+        .logo .cars {
+            color: #004d99;
+        }
+
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+      <div
+        class="container mx-auto px-6 py-3 flex items-center justify-between"
+      >
+        <div class="flex items-center">
+          <a href="#" class="logo">
+                <span class="buy">Buy</span><span class="cars">Cars</span>
+            </a>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            href="#exterior"
+            class="text-gray-700 hover:text-primary transition-colors font-medium"
+            >Exterior</a
+          >
+          <a
+            href="#interior"
+            class="text-gray-700 hover:text-primary transition-colors font-medium"
+            >Interior</a
+          >
+          <a
+            href="#features"
+            class="text-gray-700 hover:text-primary transition-colors font-medium"
+            >Features</a
+          >
+          <a
+            href="#specifications"
+            class="text-gray-700 hover:text-primary transition-colors font-medium"
+            >Specifications</a
+          >
+        </nav>
+        <button
+          class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+        >
+          Login
+        </button>
+        <div class="md:hidden w-10 h-10 flex items-center justify-center">
+          <i class="ri-menu-line ri-xl"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen pt-16 overflow-hidden"
+      style="background-image: url('https://mazdamotors.vn/media/1tcdd1wj/mazda6.jpg?width=691'); background-size: cover; background-position: center;"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-60"
+      ></div>
+      <div class="container mx-auto px-6 h-full flex items-center">
+        <div class="w-full md:w-1/2 text-white z-10">
+          <h1 class="text-5xl md:text-6xl font-bold mb-4">MAZDA</h1>
+          <p class="text-xl md:text-2xl mb-8">
+            Thời Trang Và Phong Cách sống.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button
+              class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+            >
+              Định cấu hình của bạn
+            </button>
+            <button
+              class="bg-white text-gray-800 px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+            >
+              Khám phá tính năng
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white scroll-indicator"
+      >
+        <div class="w-8 h-8 flex items-center justify-center">
+          <i class="ri-arrow-down-line ri-xl"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exterior Gallery Section -->
+    <section id="exterior" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">Thiết kế ngoại thất</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Được điêu khắc hoàn hảo với những đường nét thanh lịch và tỷ lệ năng động
+            thu hút sự chú ý trên mọi nẻo đường.
+          </p>
+        </div>
+
+        <div class="mb-12">
+          <h3 class="text-2xl font-semibold mb-6">Tùy chọn màu sắc</h3>
+          <div class="flex justify-center items-center space-x-4 mb-8">
+            <div
+              class="color-option active"
+              style="background-color: #000000;"
+              data-color="Iridium Silver"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #86eaee;"
+              data-color="Obsidian Black"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #FFFFFF;"
+              data-color="Polar White"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #0F2D52;"
+              data-color="Brilliant Blue"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #8B0000;"
+              data-color="Designo Cardinal Red"
+            ></div>
+          </div>
+          <p class="text-center text-gray-700 font-medium" id="selected-color">
+            xám phong cách
+          </p>
+        </div>
+
+        <div class="mb-16">
+          <div class="relative h-96 rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="https://mazdatanphu.com/wp-content/uploads/2024/02/bannner-web-scaled.jpg"
+              alt="Mercedes C300 360 View"
+              class="w-full h-full object-cover object-top"
+              id="main-exterior-image"
+            />
+            <div
+              class="absolute bottom-4 right-4 bg-white bg-opacity-80 px-4 py-2 rounded-full"
+            >
+              <span class="text-sm font-medium">360° View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://mazdalevanluong.vn/media/w3snx0ef/new-mazda2-2.jpg?width=1170&height=656"
+              alt="Front View"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="p-4 bg-white">
+              <h4 class="font-semibold">Mặt trước</h4>
+              <p class="text-sm text-gray-600">
+                Lưới tản nhiệt đậm nét với biểu tượng ngôi sao mang tính biểu tượng
+              </p>
+            </div>
+          </div>
+          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://mazdahadong.com/wp-content/uploads/2019/04/don-ky-nghi-dai-cung-nhung-uu-dai-vang-cua-mazda-viet-nam-1.jpg"
+              alt="Side Profile"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="p-4 bg-white">
+              <h4 class="font-semibold">Góc Nhìn Bên Cạnh</h4>
+              <p class="text-sm text-gray-600">
+                Tỷ lệ thanh lịch với các đường nét uyển chuyển
+              </p>
+            </div>
+          </div>
+          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://mazdamotors.vn/media/uo1p1ggo/mazda3_bfvgnak_46v_by3_ext_360_36_png_0026.jpg?width=414"
+              alt="Rear View"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="p-4 bg-white">
+              <h4 class="font-semibold">Nhìn từ phía sau</h4>
+              <p class="text-sm text-gray-600">
+                Đèn hậu LED đặc biệt với chữ ký hiện đại
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-4">Các tính năng bên ngoài chính</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span
+                  >Đèn pha LED hiệu suất cao với ánh sáng đặc biệt</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span>Mâm xe hợp kim 5 chấu AMG 18 inch</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span>Gói ngoại thất mạ crôm với viền cửa sổ</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span>Gương chiếu hậu chỉnh điện gập điện có logo chiếu sáng</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-4">Kích thước</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium">Chiều dài</span>
+                  <span class="text-sm font-medium">4,751 mm</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="bg-primary h-2 rounded-full"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium">Chiều rộng</span>
+                  <span class="text-sm font-medium">1,820 mm</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="bg-primary h-2 rounded-full"
+                    style="width: 65%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium">Chiều cao</span>
+                  <span class="text-sm font-medium">1,437 mm</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="bg-primary h-2 rounded-full"
+                    style="width: 50%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium">Chiều dài cơ sở</span>
+                  <span class="text-sm font-medium">2,865 mm</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="bg-primary h-2 rounded-full"
+                    style="width: 75%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interior Experience -->
+    <section id="interior" class="py-20">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">Trải nghiệm nội thất</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Đắm mình trong cabin kết hợp giữa sự sang trọng, công nghệ và
+            sự thoải mái để tạo nên một môi trường lái xe đặc biệt.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <div class="relative h-96 rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="https://oto.edu.vn/wp-content/uploads/2021/11/cong-nghe-skyactiv-6.jpg"
+              alt="Interior Dashboard"
+              class="w-full h-full object-cover object-top"
+            />
+
+            <div
+              class="hotspot"
+              style="top: 40%; left: 30%;"
+              data-feature="Digital Instrument Cluster"
+            ></div>
+            <div
+              class="hotspot"
+              style="top: 40%; left: 50%;"
+              data-feature="11.9-inch Touchscreen"
+            ></div>
+            <div
+              class="hotspot"
+              style="top: 60%; left: 50%;"
+              data-feature="Climate Controls"
+            ></div>
+            <div
+              class="hotspot"
+              style="top: 60%; left: 70%;"
+              data-feature="Center Console"
+            ></div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Nội Thất Được Thiết Kế Hoàn Toàn Thủ Công</h3>
+            <p class="text-gray-700 mb-6">
+                Nội thất Mazda thể hiện sự chú ý tỉ mỉ đến từng chi tiết với
+                vật liệu cao cấp trên khắp xe. Từ bề mặt da khâu tay
+                đến các chi tiết trang trí bằng gỗ tự nhiên, mọi khía cạnh của
+                cabin đều được chế tác để mang lại cảm giác sang trọng hiện đại.
+            </p>
+
+            <div class="mb-6">
+              <h4 class="font-semibold mb-2">Chiếu sáng xung quanh</h4>
+              <p class="text-gray-700 mb-4">
+                Tùy chỉnh môi trường lái xe của bạn 
+                với 64 màu đèn chiếu sáng xung quanh làm nổi bật các yếu tố kiến ​​trúc của cabin.
+              </p>
+              <div class="flex space-x-2">
+                <div
+                  class="w-8 h-8 rounded-full cursor-pointer"
+                  style="background-color: #ff0000;"
+                ></div>
+                <div
+                  class="w-8 h-8 rounded-full cursor-pointer"
+                  style="background-color: #00ff00;"
+                ></div>
+                <div
+                  class="w-8 h-8 rounded-full cursor-pointer"
+                  style="background-color: #0000ff;"
+                ></div>
+                <div
+                  class="w-8 h-8 rounded-full cursor-pointer"
+                  style="background-color: #ffff00;"
+                ></div>
+                <div
+                  class="w-8 h-8 rounded-full cursor-pointer"
+                  style="background-color: #ff00ff;"
+                ></div>
+                <div
+                  class="w-8 h-8 rounded-full cursor-pointer"
+                  style="background-color: #00ffff;"
+                ></div>
+              </div>
+            </div>
+
+            <div
+              id="feature-info"
+              class="bg-gray-100 p-4 rounded-lg mb-6 hidden"
+            >
+              <h4 class="font-semibold mb-2" id="feature-title">
+                Tên tính năng
+              </h4>
+              <p class="text-gray-700" id="feature-description">
+                Mô tả tính năng sẽ xuất hiện ở đây khi bạn di chuột qua điểm nóng.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span
+                  >Ghế trước có chức năng sưởi ấm và thông gió với chức năng nhớ</span
+                >
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span
+                  >Hệ thống âm thanh vòm Burmester® 3D với 15 loa</span
+                >
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span>Cửa sổ trời toàn cảnh với thao tác một chạm</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span>Sạc không dây và tích hợp điện thoại thông minh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://mazdabinhtrieu.com.vn/media/uikjccbr/04-4.jpg?width=1200&height=799.7742663656885"
+              alt="Front Seats"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="p-4 bg-white">
+              <h4 class="font-semibold">Ghế trước</h4>
+              <p class="text-sm text-gray-600">
+                Thiết kế công thái học với nhiều tùy chọn điều chỉnh
+              </p>
+            </div>
+          </div>
+          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://cms.anycar.vn/wp-content/uploads/2022/11/9290b30e-20221101_064838.jpg"
+              alt="Rear Cabin"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="p-4 bg-white">
+              <h4 class="font-semibold">Cabin phía sau</h4>
+              <p class="text-sm text-gray-600">
+                Ghế ngồi rộng rãi với các tính năng thoải mái cao cấp
+              </p>
+            </div>
+          </div>
+          <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://mazdaquan7.vn/wp-content/uploads/2024/04/z6313628831617_841739c69ed42b5c0bfcb13d0a7dbcda.jpg"
+              alt="Driver's Perspective"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div class="p-4 bg-white">
+              <h4 class="font-semibold">Góc nhìn của người lái xe</h4>
+              <p class="text-sm text-gray-600">
+                Điều khiển trực quan và màn hình kỹ thuật số
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section id="features" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">Tính năng sáng tạo</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Khám phá những công nghệ tiên tiến và các tính năng chu đáo giúp 
+            Mazda trở thành mẫu xe dẫn đầu trong phân khúc.
+          </p>
+        </div>
+
+        <div class="flex justify-center mb-12">
+          <div class="inline-flex bg-white p-1 rounded-full shadow-sm">
+            <button
+              class="feature-tab-btn active px-6 py-2 rounded-full whitespace-nowrap"
+              data-tab="safety"
+            >
+             Sự an toàn
+            </button>
+            <button
+              class="feature-tab-btn px-6 py-2 rounded-full whitespace-nowrap"
+              data-tab="technology"
+            >
+              Công nghệ
+            </button>
+            <button
+              class="feature-tab-btn px-6 py-2 rounded-full whitespace-nowrap"
+              data-tab="comfort"
+            >
+              Hệ Thống Bên Trong
+            </button>
+            <button
+              class="feature-tab-btn px-6 py-2 rounded-full whitespace-nowrap"
+              data-tab="performance"
+            >
+              Performance
+            </button>
+          </div>
+        </div>
+
+        <div class="feature-tab-content" id="safety-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-shield-check-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Hỗ trợ phanh chủ động</h3>
+              <p class="text-gray-600">
+                Giúp giảm thiểu hoặc tránh va chạm trực diện bằng cách tự động
+                phanh khi phát hiện có khả năng xảy ra va chạm.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-eye-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Hỗ trợ điểm mù</h3>
+              <p class="text-gray-600">
+                Giám sát các khu vực bên cạnh và phía sau xe của bạn, 
+                cảnh báo bạn về các phương tiện nằm trong điểm mù của bạn khi chuyển làn đường.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-road-map-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Hỗ trợ giữ làn đường</h3>
+              <p class="text-gray-600">
+                Giúp ngăn ngừa việc chệch làn đường không mong muốn bằng cách 
+                điều chỉnh tay lái nhẹ nhàng khi cần thiết.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-parking-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Hỗ trợ đỗ xe chủ động</h3>
+              <p class="text-gray-600">
+                Giảm bớt căng thẳng khi đỗ xe với chức năng lái tự động và
+                kiểm soát phanh khi đỗ xe song song và vuông góc.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-car-washing-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Hệ thống PRE-SAFE®</h3>
+              <p class="text-gray-600">
+                Chuẩn bị cho xe và người ngồi trên xe khi va chạm có vẻ sắp xảy ra, 
+                thắt chặt dây an toàn và điều chỉnh ghế ngồi.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-radar-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Hỗ trợ chú ý</h3>
+              <p class="text-gray-600">
+                Theo dõi hành vi của người lái xe để phát hiện dấu hiệu buồn ngủ, cung cấp
+                cảnh báo khi đến lúc cần nghỉ ngơi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-tab-content hidden" id="technology-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-computer-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Thông tin giải trí MBUX</h3>
+              <p class="text-gray-600">
+                Hệ thống đa phương tiện trực quan với màn hình cảm ứng 11,9 inch và điều khiển bằng giọng nói "Hey
+                Mercedes" để tương tác liền mạch.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-dashboard-3-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">
+                Cụm nhạc cụ kỹ thuật số
+              </h3>
+              <p class="text-gray-600">
+                Màn hình độ phân giải cao 12,3 inch với chế độ xem thông tin có thể tùy chỉnh và tích hợp điều hướng.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-projector-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Màn hình hiển thị Head-Up</h3>
+              <p class="text-gray-600">
+                Chiếu thông tin lái xe quan trọng trực tiếp vào tầm nhìn của bạn
+                để giảm thiểu sự mất tập trung khi lái xe.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-smartphone-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Tích hợp không dây</h3>
+              <p class="text-gray-600">
+                Kết nối liền mạch với Apple CarPlay và Android Auto, cùng với
+                sạc không dây cho các thiết bị tương thích.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-music-2-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">
+                Hệ thống âm thanh Burmester®
+              </h3>
+              <p class="text-gray-600">
+                Âm thanh vòm 3D cao cấp với 15 loa hiệu suất cao mang đến
+                trải nghiệm âm thanh sống động.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-fingerprint-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">
+                Xác thực sinh trắc học
+              </h3>
+              <p class="text-gray-600">
+                Truy cập an toàn và cài đặt cá nhân hóa với máy quét dấu vân tay
+                tích hợp vào hệ thống thông tin giải trí.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-tab-content hidden" id="comfort-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-sun-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Cửa sổ trời toàn cảnh</h3>
+              <p class="text-gray-600">
+                Mái kính rộng rãi giúp cabin tràn ngập ánh sáng tự nhiên
+                và mở ra chỉ bằng một lần chạm.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-temp-cold-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Kiểm soát khí hậu</h3>
+              <p class="text-gray-600">
+                Hệ thống điều hòa không khí tự động hai vùng với hệ thống lọc không khí
+                và máy khuếch tán hương thơm.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-massage-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Chức năng mát xa</h3>
+              <p class="text-gray-600">
+                Ghế trước có nhiều chương trình massage giúp giảm mệt mỏi trên những chuyến đi dài.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-contrast-2-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Chiếu sáng xung quanh</h3>
+              <p class="text-gray-600">
+                Hệ thống đèn LED 64 màu giúp tăng cường bầu không khí trong cabin
+                và phản ứng với các chức năng của xe.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-door-lock-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">KHÔNG CÓ CHÌA KHÓA</h3>
+              <p class="text-gray-600">
+                Mở cửa rảnh tay với chức năng mở cốp tự động và nút bấm
+                khởi động để ra vào xe thuận tiện.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-luggage-cart-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Lưu trữ đa năng</h3>
+              <p class="text-gray-600">
+                Giải pháp lưu trữ được thiết kế chu đáo khắp cabin và
+                cốp xe rộng rãi với hàng ghế sau có thể gập lại.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-tab-content hidden" id="performance-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-rocket-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Động cơ tăng áp</h3>
+              <p class="text-gray-600">
+                Động cơ tăng áp 4 xy-lanh thẳng hàng 2.0L cho công suất 255 mã lực và mô-men xoắn 295
+                lb-ft giúp tăng tốc nhanh nhạy.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-settings-5-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Hộp số 9G-TRONIC</h3>
+              <p class="text-gray-600">
+                Hộp số tự động 9 cấp với nhiều chế độ lái để
+                tối ưu hóa hiệu suất và hiệu quả.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-steering-2-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Xử lý động</h3>
+              <p class="text-gray-600">
+                Khả năng xử lý nhanh nhẹn và chính xác với hệ thống lái nhạy cảm với tốc độ và
+                hệ thống treo thích ứng.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-battery-2-charge-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Tăng cường EQ</h3>
+              <p class="text-gray-600">
+                Máy phát điện khởi động tích hợp cung cấp thêm công suất và mô-men xoắn khi cần để nâng cao hiệu suất.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i
+                  class="ri-stop-circle-line ri-xl text-primary feature-icon"
+                ></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Phanh hiệu suất</h3>
+              <p class="text-gray-600">
+                Hệ thống phanh hiệu suất cao với đĩa trước đục lỗ mang lại lực dừng chắc chắn trong mọi điều kiện.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white rounded-lg shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6"
+              >
+                <i class="ri-speed-line ri-xl text-primary feature-icon"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">TỰ ĐỘNG</h3>
+              <p class="text-gray-600">
+                Các chế độ lái có thể tùy chỉnh bao gồm Comfort, Sport, Sport+ và
+                Individual để phù hợp với phong cách lái xe của bạn.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section id="specifications" class="py-20">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">S
+          <h2 class="text-4xl font-bold mb-4">Thông số kỹ thuật</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Khám phá sự xuất sắc về kỹ thuật đằng sau hiệu suất và khả năng của Mazda.
+          </p>
+        </div>
+
+        <div class="mb-12">
+          <div class="flex border-b border-gray-200">
+            <button
+              class="tab-button active py-4 px-6 text-gray-700 font-medium"
+              data-tab="engine"
+            >
+              Engine & Performance
+            </button>
+            <button
+              class="tab-button py-4 px-6 text-gray-700 font-medium"
+              data-tab="dimensions"
+            >
+              Dimensions
+            </button>
+            <button
+              class="tab-button py-4 px-6 text-gray-700 font-medium"
+              data-tab="features"
+            >
+              Standard Features
+            </button>
+            <button
+              class="tab-button py-4 px-6 text-gray-700 font-medium"
+              data-tab="compare"
+            >
+              Compare Trims
+            </button>
+          </div>
+          <div class="tab-panel active py-8" id="engine-panel">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <h3 class="text-2xl font-semibold mb-6">
+                  Engine Specifications
+                </h3>
+                <div class="space-y-4">
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Engine Type</span>
+                    <span>2.0L Inline-4 Turbo</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Horsepower</span>
+                    <span>255 hp @ 5,800-6,100 rpm</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Torque</span>
+                    <span>295 lb-ft @ 2,000-3,200 rpm</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Transmission</span>
+                    <span>9G-TRONIC 9-speed automatic</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Drivetrain</span>
+                    <span>Rear-wheel drive (4MATIC available)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Fuel Economy (City/Hwy)</span>
+                    <span>23/35 mpg</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-2xl font-semibold mb-6">Performance Metrics</h3>
+                <div class="space-y-6">
+                  <div>
+                    <div class="flex justify-between mb-2">
+                      <span class="font-medium">0-60 mph</span>
+                      <span>5.9 seconds</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 75%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-2">
+                      <span class="font-medium">Top Speed</span>
+                      <span>130 mph (limited)</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 85%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-2">
+                      <span class="font-medium">Braking (60-0 mph)</span>
+                      <span>112 ft</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 80%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-2">
+                      <span class="font-medium">Lateral Acceleration</span>
+                      <span>0.91 g</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 70%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8">
+                  <h4 class="font-semibold mb-4">Performance Enhancements</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <div
+                        class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                      >
+                        <i class="ri-check-line"></i>
+                      </div>
+                      <span>DYNAMIC SELECT drive mode selector</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div
+                        class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                      >
+                        <i class="ri-check-line"></i>
+                      </div>
+                      <span>ECO start/stop system</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div
+                        class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                      >
+                        <i class="ri-check-line"></i>
+                      </div>
+                      <span>Adaptive damping suspension</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div
+                        class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                      >
+                        <i class="ri-check-line"></i>
+                      </div>
+                      <span>Speed-sensitive power steering</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12">
+              <h3 class="text-2xl font-semibold mb-6">Performance Chart</h3>
+              <div
+                id="performance-chart"
+                class="w-full h-80 bg-white rounded-lg shadow-md"
+              ></div>
+            </div>
+          </div>
+
+          <div class="tab-panel py-8 hidden" id="dimensions-panel">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <h3 class="text-2xl font-semibold mb-6">Exterior Dimensions</h3>
+                <div class="space-y-4">
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Length</span>
+                    <span>4,751 mm (187.0 in)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Width (w/o mirrors)</span>
+                    <span>1,820 mm (71.7 in)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Height</span>
+                    <span>1,437 mm (56.6 in)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Wheelbase</span>
+                    <span>2,865 mm (112.8 in)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Track (front/rear)</span>
+                    <span>1,582/1,594 mm (62.3/62.8 in)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Ground Clearance</span>
+                    <span>142 mm (5.6 in)</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-2xl font-semibold mb-6">
+                  Interior Dimensions & Capacity
+                </h3>
+                <div class="space-y-4">
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Headroom (front/rear)</span>
+                    <span>1,003/942 mm (39.5/37.1 in)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Legroom (front/rear)</span>
+                    <span>1,052/897 mm (41.4/35.3 in)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Shoulder Room (front/rear)</span>
+                    <span>1,408/1,372 mm (55.4/54.0 in)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Trunk Volume</span>
+                    <span>455 liters (16.1 cu ft)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Fuel Tank Capacity</span>
+                    <span>66 liters (17.4 gallons)</span>
+                  </div>
+                  <div
+                    class="flex justify-between border-b border-gray-200 pb-3"
+                  >
+                    <span class="font-medium">Seating Capacity</span>
+                    <span>5 passengers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-12">
+              <h3 class="text-2xl font-semibold mb-6">Vehicle Dimensions</h3>
+              <div class="relative h-96 rounded-lg overflow-hidden shadow-md">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Mercedes%20C300%20technical%20diagram%2C%20blueprint%20style%2C%20dimensions%20labeled%2C%20front%2C%20side%20and%20top%20view%2C%20clean%20white%20background%2C%20professional%20technical%20illustration%2C%20detailed%20engineering%20drawing&width=1200&height=600&seq=10&orientation=landscape"
+                  alt="Mercedes C300 Dimensions Diagram"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel py-8 hidden" id="features-panel">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div>
+                <h3 class="text-xl font-semibold mb-4">Exterior</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>LED High Performance headlamps</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>18-inch AMG 5-spoke alloy wheels</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Power folding side mirrors</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Chrome exterior package</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Panoramic sunroof</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Rain-sensing windshield wipers</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Hands-free access trunk</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-4">Interior & Comfort</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Power front seats with memory</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Heated front seats</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Dual-zone automatic climate control</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>64-color ambient lighting</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>MB-Tex upholstery</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>40/20/40 split-folding rear seats</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Multifunction steering wheel</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-4">Technology & Safety</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>MBUX multimedia system</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>12.3" digital instrument cluster</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>11.9" central touchscreen display</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Wireless Apple CarPlay & Android Auto</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Active Brake Assist</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>Blind Spot Assist</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center text-primary mr-2"
+                    >
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <span>PRE-SAFE® system</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel py-8 hidden" id="compare-panel">
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr class="bg-gray-100">
+                    <th class="p-4 text-left font-semibold">Feature</th>
+                    <th class="p-4 text-center font-semibold">C300</th>
+                    <th class="p-4 text-center font-semibold">C300 4MATIC</th>
+                    <th class="p-4 text-center font-semibold">AMG C43</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">Engine</td>
+                    <td class="p-4 text-center">2.0L Turbo Inline-4</td>
+                    <td class="p-4 text-center">2.0L Turbo Inline-4</td>
+                    <td class="p-4 text-center">
+                      2.0L Turbo Inline-4 with AMG tuning
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">Horsepower</td>
+                    <td class="p-4 text-center">255 hp</td>
+                    <td class="p-4 text-center">255 hp</td>
+                    <td class="p-4 text-center">402 hp</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">Torque</td>
+                    <td class="p-4 text-center">295 lb-ft</td>
+                    <td class="p-4 text-center">295 lb-ft</td>
+                    <td class="p-4 text-center">369 lb-ft</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">Drivetrain</td>
+                    <td class="p-4 text-center">Rear-wheel drive</td>
+                    <td class="p-4 text-center">All-wheel drive</td>
+                    <td class="p-4 text-center">All-wheel drive</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">0-60 mph</td>
+                    <td class="p-4 text-center">5.9 sec</td>
+                    <td class="p-4 text-center">5.9 sec</td>
+                    <td class="p-4 text-center">4.6 sec</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">Wheels</td>
+                    <td class="p-4 text-center">18" 5-spoke</td>
+                    <td class="p-4 text-center">18" 5-spoke</td>
+                    <td class="p-4 text-center">19" AMG multispoke</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">Suspension</td>
+                    <td class="p-4 text-center">Comfort-tuned</td>
+                    <td class="p-4 text-center">Comfort-tuned</td>
+                    <td class="p-4 text-center">AMG RIDE CONTROL</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">Steering</td>
+                    <td class="p-4 text-center">Speed-sensitive</td>
+                    <td class="p-4 text-center">Speed-sensitive</td>
+                    <td class="p-4 text-center">AMG speed-sensitive</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="p-4 font-medium">Starting MSRP</td>
+                    <td class="p-4 text-center">$43,550</td>
+                    <td class="p-4 text-center">$45,550</td>
+                    <td class="p-4 text-center">$59,900</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section
+      class="py-20"
+      style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);"
+    >
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-6">Experience the Mazda Today</h2>
+          <p class="text-gray-700 text-lg mb-10">
+            Discover the perfect blend of luxury, technology, and performance
+            with the Mercedes-Benz C300. Schedule a test drive or configure your
+            own.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <button
+              class="bg-primary text-white px-8 py-4 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap text-lg"
+            >
+              Configure Your Mazda
+            </button>
+            <button
+              class="bg-white text-gray-800 px-8 py-4 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap text-lg shadow-md"
+            >
+              Schedule Test Drive
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6"
+            >
+              <i class="ri-map-pin-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Find a Dealer</h3>
+            <p class="text-gray-600 mb-6">
+              Locate your nearest Mercedes-Benz dealership to explore the C300
+              in person.
+            </p>
+            <button class="text-primary font-medium hover:underline">
+              Find Dealers
+            </button>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6"
+            >
+              <i class="ri-file-list-3-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Download Brochure</h3>
+            <p class="text-gray-600 mb-6">
+              Get detailed information about the C300 specifications and
+              features.
+            </p>
+            <button class="text-primary font-medium hover:underline">
+              Download PDF
+            </button>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6"
+            >
+              <i class="ri-customer-service-2-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Contact Us</h3>
+            <p class="text-gray-600 mb-6">
+              Have questions? Our team is ready to assist you with any
+              inquiries.
+            </p>
+            <button class="text-primary font-medium hover:underline">
+              Get in Touch
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <!-- <h3 class="text-xl font-semibold mb-4">Mercedes-Benz</h3> -->
+             <a href="#" class="logo">
+                <span class="buy">Buy</span><span class="cars">Cars</span>
+            </a>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-10 h-10 flex items-center justify-center">
+                  <i class="ri-facebook-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-10 h-10 flex items-center justify-center">
+                  <i class="ri-twitter-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-10 h-10 flex items-center justify-center">
+                  <i class="ri-instagram-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-10 h-10 flex items-center justify-center">
+                  <i class="ri-youtube-fill ri-lg"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Exterior</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Interior</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Specifications</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Book Test Drive</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Support</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Find a Dealer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Financing Options</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Service & Maintenance</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Subscribe to receive updates on new models and exclusive offers.
+            </p>
+            <form class="flex flex-col space-y-4">
+              <input
+                type="email"
+                placeholder="Your email address"
+                class="px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white focus:outline-none focus:border-primary"
+              />
+              <button
+                type="submit"
+                class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Mercedes-Benz. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors text-sm"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors text-sm"
+              >Terms of Use</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors text-sm"
+              >Cookie Settings</a
+            >
+          </div>
+          <div class="flex items-center space-x-4 mt-4 md:mt-0">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-visa-line ri-lg text-gray-400"></i>
+            </div>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-mastercard-line ri-lg text-gray-400"></i>
+            </div>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-paypal-line ri-lg text-gray-400"></i>
+            </div>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-apple-fill ri-lg text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+
+    <script id="color-selector">
+      document.addEventListener("DOMContentLoaded", function () {
+        const colorOptions = document.querySelectorAll(".color-option");
+        const selectedColorText = document.getElementById("selected-color");
+        const mainExteriorImage = document.getElementById("main-exterior-image");
+
+        colorOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            // Remove active class from all options
+            colorOptions.forEach((opt) => opt.classList.remove("active"));
+
+            // Add active class to clicked option
+            this.classList.add("active");
+
+            // Update selected color text
+            const colorName = this.getAttribute("data-color");
+            selectedColorText.textContent = colorName;
+
+            // Here you would update the car image based on the selected color
+            // For demo purposes, we're just changing the image source based on color
+            let colorKeyword = "";
+            switch (colorName) {
+              case "Iridium Silver":
+                colorKeyword = "silver";
+                break;
+              case "Obsidian Black":
+                colorKeyword = "xanh thời thượng";
+                break;
+              case "Polar White":
+                colorKeyword = "white";
+                break;
+              case "Brilliant Blue":
+                colorKeyword = "blue";
+                break;
+              case "Designo Cardinal Red":
+                colorKeyword = "red";
+                break;
+              default:
+                colorKeyword = "silver";
+            }
+
+            mainExteriorImage.src = 'https://assets.karyakarsa.com/post-image-652ac8aae64bb.jpg';
+          });
+        });
+      });
+    </script>
+
+    <script id="hotspot-interaction">
+      document.addEventListener("DOMContentLoaded", function () {
+        const hotspots = document.querySelectorAll(".hotspot");
+        const featureInfo = document.getElementById("feature-info");
+        const featureTitle = document.getElementById("feature-title");
+        const featureDescription = document.getElementById("feature-description");
+
+        const featureDetails = {
+          "Digital Instrument Cluster":
+            "High-resolution 12.3-inch digital display with customizable information views and navigation integration.",
+          "11.9-inch Touchscreen":
+            'Central infotainment display with MBUX system, featuring intuitive controls and "Hey Mercedes" voice assistant.',
+          "Climate Controls":
+            "Dual-zone automatic climate control with touch-sensitive controls and air purification system.",
+          "Center Console":
+            "Ergonomic design with wireless charging pad, storage compartments, and drive mode selector.",
+        };
+
+        hotspots.forEach((hotspot) => {
+          hotspot.addEventListener("mouseenter", function () {
+            const feature = this.getAttribute("data-feature");
+            featureTitle.textContent = feature;
+            featureDescription.textContent = featureDetails[feature];
+            featureInfo.classList.remove("hidden");
+          });
+
+          hotspot.addEventListener("mouseleave", function () {
+            featureInfo.classList.add("hidden");
+          });
+        });
+      });
+    </script>
+
+    <script id="feature-tabs">
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".feature-tab-btn");
+        const tabContents = document.querySelectorAll(".feature-tab-content");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // Hide all tab contents
+            tabContents.forEach((content) => content.classList.add("hidden"));
+
+            // Show the selected tab content
+            const tabId = this.getAttribute("data-tab");
+            document.getElementById(`${tabId}-content`).classList.remove("hidden");
+          });
+        });
+      });
+    </script>
+
+    <script id="spec-tabs">
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabPanels = document.querySelectorAll(".tab-panel");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // Hide all tab panels
+            tabPanels.forEach((panel) => {
+              panel.classList.add("hidden");
+              panel.classList.remove("active");
+            });
+
+            // Show the selected tab panel
+            const tabId = this.getAttribute("data-tab");
+            const panel = document.getElementById(`${tabId}-panel`);
+            panel.classList.remove("hidden");
+            panel.classList.add("active");
+          });
+        });
+      });
+    </script>
+
+    <script id="performance-chart">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize the chart
+        const chartDom = document.getElementById("performance-chart");
+        if (!chartDom) return;
+
+        const myChart = echarts.init(chartDom);
+
+        const option = {
+          animation: false,
+          tooltip: {
+            trigger: "axis",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            borderColor: "#e2e8f0",
+            textStyle: {
+              color: "#1f2937",
+            },
+          },
+          legend: {
+            data: ["Horsepower", "Torque"],
+            textStyle: {
+              color: "#1f2937",
+            },
+          },
+          grid: {
+            left: "3%",
+            right: "4%",
+            bottom: "3%",
+            containLabel: true,
+          },
+          xAxis: {
+            type: "category",
+            boundaryGap: false,
+            data: ["1000", "2000", "3000", "4000", "5000", "6000", "7000"],
+            axisLabel: {
+              color: "#1f2937",
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#e2e8f0",
+              },
+            },
+            name: "RPM",
+            nameLocation: "middle",
+            nameGap: 30,
+            nameTextStyle: {
+              color: "#1f2937",
+              fontWeight: "bold",
+            },
+          },
+          yAxis: {
+            type: "value",
+            axisLabel: {
+              color: "#1f2937",
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#e2e8f0",
+              },
+            },
+            splitLine: {
+              lineStyle: {
+                color: "#e2e8f0",
+              },
+            },
+            name: "Output",
+            nameLocation: "middle",
+            nameGap: 50,
+            nameTextStyle: {
+              color: "#1f2937",
+              fontWeight: "bold",
+            },
+          },
+          series: [
+            {
+              name: "Horsepower",
+              type: "line",
+              stack: "Total",
+              smooth: true,
+              lineStyle: {
+                width: 3,
+              },
+              symbol: "none",
+              color: "rgba(87, 181, 231, 1)",
+              areaStyle: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: "rgba(87, 181, 231, 0.3)",
+                  },
+                  {
+                    offset: 1,
+                    color: "rgba(87, 181, 231, 0.1)",
+                  },
+                ]),
+              },
+              data: [50, 100, 150, 180, 220, 255, 240],
+            },
+            {
+              name: "Torque",
+              type: "line",
+              stack: "Total",
+              smooth: true,
+              lineStyle: {
+                width: 3,
+              },
+              symbol: "none",
+              color: "rgba(252, 141, 98, 1)",
+              areaStyle: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: "rgba(252, 141, 98, 0.3)",
+                  },
+                  {
+                    offset: 1,
+                    color: "rgba(252, 141, 98, 0.1)",
+                  },
+                ]),
+              },
+              data: [180, 260, 295, 290, 270, 240, 200],
+            },
+          ],
+        };
+
+        myChart.setOption(option);
+
+        // Responsive chart
+        window.addEventListener("resize", function () {
+          myChart.resize();
+        });
+      });
+    </script>
+  </body>
+</html>

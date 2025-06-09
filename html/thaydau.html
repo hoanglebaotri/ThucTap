@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickLube Pro Oil Service</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3b82f6", secondary: "#10b981" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      }
+      .animate-pulse-slow {
+      animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      .animate-bounce-slow {
+      animation: bounce 3s infinite;
+      }
+      .animate-float {
+      animation: float 6s ease-in-out infinite;
+      }
+      .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradient 15s ease infinite;
+      }
+      .animate-count {
+      counter-reset: count 0;
+      animation: count 2s forwards;
+      }
+      .parallax {
+      transform: translateY(var(--scroll-y, 0));
+      transition: transform 0.1s ease-out;
+      }
+      .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .progress-bar {
+      width: 0;
+      transition: width 1.5s ease-in-out;
+      }
+      .progress-bar.animate {
+      width: 100%;
+      }
+      .feature-icon {
+      transition: transform 0.3s ease;
+      }
+      .feature-card:hover .feature-icon {
+      transform: rotate(10deg);
+      }
+      .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      background-color: rgba(255, 255, 255, 0.3);
+      }
+      .slide-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .slide-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+      }
+      .stagger-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .stagger-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+      }
+      .carousel {
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      }
+      .carousel-item {
+      scroll-snap-align: start;
+      }
+      .star-rating .star {
+      transition: color 0.3s ease;
+      }
+      .quote-slider {
+      transition: transform 0.5s ease;
+      }
+      input:not([type="checkbox"]):not([type="radio"]) {
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      input:not([type="checkbox"]):not([type="radio"]):focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+      }
+      .range-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e7eb;
+      outline: none;
+      }
+      .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #3b82f6;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      }
+      .range-slider::-webkit-slider-thumb:hover {
+      background: #2563eb;
+      transform: scale(1.1);
+      }
+      .range-slider::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border: none;
+      border-radius: 50%;
+      background: #3b82f6;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      }
+      .range-slider::-moz-range-thumb:hover {
+      background: #2563eb;
+      transform: scale(1.1);
+      }
+      .custom-checkbox {
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      user-select: none;
+      }
+      .custom-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      }
+      .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 24px;
+      width: 24px;
+      background-color: #fff;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      }
+      .custom-checkbox:hover input ~ .checkmark {
+      border-color: #3b82f6;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+      background-color: #3b82f6;
+      border-color: #3b82f6;
+      }
+      .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 8px;
+      top: 4px;
+      width: 6px;
+      height: 12px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+      }
+      .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
+      }
+      .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      }
+      .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e5e7eb;
+      transition: .4s;
+      border-radius: 34px;
+      }
+      .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+      }
+      input:checked + .slider {
+      background-color: #3b82f6;
+      }
+      input:checked + .slider:before {
+      transform: translateX(24px);
+      }
+
+      .logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;            
+            padding: 10px;
+            text-decoration: none; 
+            display: inline-block;
+            margin-right: 100px;
+        }
+
+        .logo .buy {
+            color: #ff8a00; 
+        }
+
+        .logo .cars {
+            color: #004d99;
+        }
+
+      @keyframes pulse {
+      0%, 100% {
+      opacity: 1;
+      }
+      50% {
+      opacity: 0.8;
+      }
+      }
+      @keyframes bounce {
+      0%, 100% {
+      transform: translateY(0);
+      }
+      50% {
+      transform: translateY(-10px);
+      }
+      }
+      @keyframes float {
+      0%, 100% {
+      transform: translateY(0);
+      }
+      50% {
+      transform: translateY(-15px);
+      }
+      }
+      @keyframes gradient {
+      0% {
+      background-position: 0% 50%;
+      }
+      50% {
+      background-position: 100% 50%;
+      }
+      100% {
+      background-position: 0% 50%;
+      }
+      }
+      @keyframes ripple {
+      to {
+      transform: scale(4);
+      opacity: 0;
+      }
+      }
+      @keyframes count {
+      from {
+      content: "0";
+      }
+      to {
+      content: attr(data-target);
+      }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-gray-50">
+    <!-- Header Section -->
+    <header
+      class="fixed w-full z-50 bg-white bg-opacity-95 shadow-md animate-gradient"
+      style="background-image: linear-gradient(120deg, #f0f9ff, #e0f2fe, #dbeafe, #eff6ff);"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="#" class="logo">
+                <span class="buy">Buy</span><span class="cars">Cars</span>
+            </a>
+          </div>
+          <nav class="hidden md:flex space-x-10">
+            <a
+              href="#"
+              class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+              >Home</a
+            >
+            <a
+              href="#insurance"
+              class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+              >Insurance Plans</a
+            >
+            <a
+              href="#features"
+              class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+              >Features</a
+            >
+            <a
+              href="#calculator"
+              class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+              >Quote Calculator</a
+            >
+            <a
+              href="#reviews"
+              class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+              >Reviews</a
+            >
+          </nav>
+          <div class="hidden md:block">
+            <button
+              class="bg-primary text-white px-6 py-2.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 whitespace-nowrap animate-bounce-slow relative overflow-hidden"
+            >
+              Get a Quote
+            </button>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+              <div class="w-10 h-10 flex items-center justify-center">
+                <i class="ri-menu-line ri-lg"></i>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden bg-white">
+        <div class="px-6 py-4 space-y-4">
+          <a
+            href="#"
+            class="block text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+            >Home</a
+          >
+          <a
+            href="#insurance"
+            class="block text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+            >Insurance Plans</a
+          >
+          <a
+            href="#features"
+            class="block text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+            >Features</a
+          >
+          <a
+            href="#calculator"
+            class="block text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+            >Quote Calculator</a
+          >
+          <a
+            href="#reviews"
+            class="block text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+            >Reviews</a
+          >
+          <button
+            class="w-full bg-primary text-white px-6 py-2.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 whitespace-nowrap"
+          >
+            Get a Quote
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section
+      class="relative pt-24 pb-16 md:py-32 overflow-hidden"
+      style="background-image: url('https://readdy.ai/api/search-image?query=professional%20mechanic%20performing%20oil%20change%20service%20in%20modern%20auto%20service%20center%2C%20clean%20bright%20workspace%20with%20lift%2C%20high-end%20automotive%20service%20environment%2C%20dramatic%20lighting%2C%20professional%20photography%2C%20clean%20background%20on%20left%20side%20for%20text&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"
+      ></div>
+      <div class="container mx-auto px-6 relative">
+        <div class="w-full md:w-1/2 lg:w-5/12">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 slide-in"
+          >
+            Dịch vụ thay dầu chuyên nghiệp mà bạn có thể tin tưởng
+          </h1>
+          <p class="text-lg md:text-xl text-gray-700 mb-8 slide-in">
+            Dịch vụ thay dầu chuyên nghiệp với dầu tổng hợp cao cấp và
+            kiểm tra đa điểm toàn diện. Giữ cho động cơ của bạn chạy
+            trơn tru với các kỹ thuật viên được chứng nhận của chúng tôi.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 slide-in">
+            <button
+              class="bg-primary text-white px-8 py-3.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 whitespace-nowrap relative overflow-hidden"
+            >
+              Schedule Oil Change
+            </button>
+            <button
+              class="bg-white text-primary border-2 border-primary px-8 py-3.5 !rounded-button font-semibold hover:bg-gray-50 transition-all duration-300 whitespace-nowrap"
+            >
+              <div class="flex items-center">
+                <i class="ri-calendar-line mr-2"></i>
+                Same-Day Service
+              </div>
+            </button>
+          </div>
+          <div class="mt-10 flex items-center space-x-6 slide-in">
+            <div class="flex -space-x-2">
+              <img
+                src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20diverse%20young%20woman%2C%20business%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=person1&orientation=squarish"
+                alt="Customer"
+                class="w-10 h-10 rounded-full border-2 border-white"
+              />
+              <img
+                src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20diverse%20young%20man%2C%20business%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=person2&orientation=squarish"
+                alt="Customer"
+                class="w-10 h-10 rounded-full border-2 border-white"
+              />
+              <img
+                src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20middle-aged%20woman%2C%20business%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=person3&orientation=squarish"
+                alt="Customer"
+                class="w-10 h-10 rounded-full border-2 border-white"
+              />
+            </div>
+            <div>
+              <p class="text-gray-700 font-medium">
+                Trusted by
+                <span class="text-primary font-semibold">10,000+</span> drivers
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-10 right-10 animate-float hidden lg:block">
+        <img
+          src="https://readdy.ai/api/search-image?query=modern%20car%20icon%2C%20minimalist%20design%2C%20floating%20effect%2C%20transparent%20background%2C%20clean%203D%20render&width=200&height=200&seq=caricon1&orientation=squarish"
+          alt="Car Icon"
+          class="w-32 h-32"
+        />
+      </div>
+    </section>
+    <!-- Insurance Options Section -->
+    <section id="services" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 slide-in"
+          >
+            Dịch vụ thay dầu
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto slide-in">
+            Hãy lựa chọn từ nhiều dịch vụ thay dầu cao cấp của chúng tôi, phù hợp với
+            nhu cầu cụ thể của xe bạn.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Basic Plan -->
+          <div
+            class="bg-white rounded-lg shadow-lg p-8 card-hover stagger-item"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-shield-line ri-2x text-primary feature-icon"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+              Thay dầu thông thường
+            </h3>
+            <div class="mb-6">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-600">Service Level</span>
+                <span class="text-gray-900 font-medium">Standard</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-primary h-2.5 rounded-full progress-bar"
+                  style="width: 40%"
+                ></div>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Conventional Oil Change</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Oil Filter Replacement</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Basic Vehicle Inspection</span>
+              </li>
+              <li class="flex items-start opacity-50">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-gray-400 mt-0.5"
+                >
+                  <i class="ri-close-line"></i>
+                </div>
+                <span class="ml-3 text-gray-400">Synthetic Oil</span>
+              </li>
+              <li class="flex items-start opacity-50">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-gray-400 mt-0.5"
+                >
+                  <i class="ri-close-line"></i>
+                </div>
+                <span class="ml-3 text-gray-400"
+                  >Extended Service Warranty</span
+                >
+              </li>
+            </ul>
+            <div class="flex items-end justify-between mb-6">
+              <div>
+                <span class="text-gray-500 text-sm">Starting from</span>
+                <div class="flex items-end">
+                  <span class="text-3xl font-bold text-gray-900">$49</span>
+                  <span class="text-gray-600 ml-1">/month</span>
+                </div>
+              </div>
+              <button
+                class="bg-white text-primary border-2 border-primary px-6 py-2.5 !rounded-button font-semibold hover:bg-gray-50 transition-all duration-300 whitespace-nowrap"
+              >
+                Get Quote
+              </button>
+            </div>
+          </div>
+          <!-- Standard Plan -->
+          <div
+            class="bg-white rounded-lg shadow-xl p-8 transform scale-105 border-2 border-primary card-hover stagger-item"
+          >
+            <div
+              class="absolute -top-4 right-8 bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold"
+            >
+              Most Popular
+            </div>
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-car-line ri-2x text-primary feature-icon"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+              Thay dầu pha tổng hợp
+            </h3>
+            <div class="mb-6">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-600">Service Level</span>
+                <span class="text-gray-900 font-medium">Enhanced</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-primary h-2.5 rounded-full progress-bar"
+                  style="width: 70%"
+                ></div>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Liability Coverage</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Property Damage</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Bodily Injury Protection</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Comprehensive Coverage</span>
+              </li>
+              <li class="flex items-start opacity-50">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-gray-400 mt-0.5"
+                >
+                  <i class="ri-close-line"></i>
+                </div>
+                <span class="ml-3 text-gray-400">Roadside Assistance</span>
+              </li>
+            </ul>
+            <div class="flex items-end justify-between mb-6">
+              <div>
+                <span class="text-gray-500 text-sm">Starting from</span>
+                <div class="flex items-end">
+                  <span class="text-3xl font-bold text-gray-900">$79</span>
+                  <span class="text-gray-600 ml-1">/month</span>
+                </div>
+              </div>
+              <button
+                class="bg-primary text-white px-6 py-2.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 whitespace-nowrap"
+              >
+                Get Quote
+              </button>
+            </div>
+          </div>
+          <!-- Premium Plan -->
+          <div
+            class="bg-white rounded-lg shadow-lg p-8 card-hover stagger-item"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-vip-crown-line ri-2x text-primary feature-icon"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+             Thay dầu tổng hợp hoàn toàn
+            </h3>
+            <div class="mb-6">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-600">Service Level</span>
+                <span class="text-gray-900 font-medium">Premium</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-primary h-2.5 rounded-full progress-bar"
+                  style="width: 100%"
+                ></div>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Liability Coverage</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Property Damage</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Bodily Injury Protection</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Comprehensive Coverage</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-check-line"></i>
+                </div>
+                <span class="ml-3 text-gray-600">Roadside Assistance</span>
+              </li>
+            </ul>
+            <div class="flex items-end justify-between mb-6">
+              <div>
+                <span class="text-gray-500 text-sm">Starting from</span>
+                <div class="flex items-end">
+                  <span class="text-3xl font-bold text-gray-900">$129</span>
+                  <span class="text-gray-600 ml-1">/month</span>
+                </div>
+              </div>
+              <button
+                class="bg-white text-primary border-2 border-primary px-6 py-2.5 !rounded-button font-semibold hover:bg-gray-50 transition-all duration-300 whitespace-nowrap"
+              >
+                Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 slide-in"
+          >
+            Tại sao chọn bảo hiểm của chúng tôi
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto slide-in">
+            Chúng tôi cung cấp nhiều hơn là chỉ bảo hiểm. Trải nghiệm bảo vệ cao cấp
+            với các quyền lợi được thiết kế dành cho người lái xe hiện đại.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-md feature-card stagger-item"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-time-line ri-xl text-primary feature-icon"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+             Hỗ trợ khiếu nại 24/7
+            </h3>
+            <p class="text-gray-600">
+              Đội ngũ tận tâm của chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7 trong việc xử lý khiếu nại và hỗ trợ khẩn cấp.
+            </p>
+          </div>
+          <!-- Feature 2 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-md feature-card stagger-item"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-smartphone-line ri-xl text-primary feature-icon"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Quyền truy cập ứng dụng di động
+            </h3>
+            <p class="text-gray-600">
+              Quản lý chính sách, nộp yêu cầu bồi thường và truy cập thẻ căn cước kỹ thuật số
+                ngay lập tức thông qua ứng dụng di động thân thiện với người dùng của chúng tôi.
+            </p>
+          </div>
+          <!-- Feature 3 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-md feature-card stagger-item"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="ri-money-dollar-circle-line ri-xl text-primary feature-icon"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Tha thứ cho tai nạn
+            </h3>
+            <p class="text-gray-600">
+              Tai nạn đầu tiên do lỗi của bạn sẽ không làm tăng phí bảo hiểm,
+                mang lại cho bạn sự an tâm và bảo vệ tài chính.
+            </p>
+          </div>
+          <!-- Feature 4 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-md feature-card stagger-item"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="ri-car-washing-line ri-xl text-primary feature-icon"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Thay thế xe mới
+            </h3>
+            <p class="text-gray-600">
+              Nếu xe mới của bạn bị hỏng hoàn toàn trong năm đầu tiên, 
+              chúng tôi sẽ thay thế nó bằng một chiếc xe hoàn toàn mới cùng nhãn hiệu và kiểu xe.
+            </p>
+          </div>
+          <!-- Feature 5 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-md feature-card stagger-item"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="ri-shield-check-line ri-xl text-primary feature-icon"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Bảo hiểm Khoảng cách
+            </h3>
+            <p class="text-gray-600">
+              Bao gồm khoản chênh lệch giữa số tiền bạn nợ cho chiếc xe của mình và
+                giá trị tiền mặt thực tế của xe trong trường hợp mất mát hoàn toàn.
+            </p>
+          </div>
+          <!-- Feature 6 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-md feature-card stagger-item"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-percentage-line ri-xl text-primary feature-icon"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Giảm giá nhiều chính sách
+            </h3>
+            <p class="text-gray-600">
+              Tiết kiệm tới 25% khi bạn kết hợp bảo hiểm ô tô với các chính sách khác
+                như bảo hiểm nhà ở hoặc bảo hiểm người thuê nhà.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Quote Calculator Section -->
+    <section id="calculator" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 slide-in"
+            >
+              Tính phí bảo hiểm của bạn
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto slide-in">
+              Nhận ngay ước tính về phí bảo hiểm dựa trên nhu cầu về xe và phạm vi bảo hiểm của bạn.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-8 md:p-10">
+            <div class="mb-8">
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold text-gray-900">
+                  Báo giá tiến độ
+                </h3>
+                <span class="text-sm text-gray-500" id="progress-text"
+                  >Bước 1 trong 3</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+                <div
+                  id="progress-bar"
+                  class="bg-primary h-2.5 rounded-full transition-all duration-500"
+                  style="width: 33%"
+                ></div>
+              </div>
+            </div>
+            <form id="quote-form">
+              <!-- Step 1: Vehicle Information -->
+              <div id="step-1" class="quote-step">
+                <h4 class="text-lg font-semibold text-gray-900 mb-6">
+                  Thông tin xe
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label
+                      for="vehicle-year"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Năm Đăng ký</label
+                    >
+                    <select
+                      id="vehicle-year"
+                      class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-gray-700 bg-white pr-8"
+                    >
+                      <option value="">chọn năm</option>
+                      <option value="2025">2025</option>
+                      <option value="2024">2024</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      for="vehicle-make"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Loại Xe</label
+                    >
+                    <select
+                      id="vehicle-make"
+                      class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-gray-700 bg-white pr-8"
+                    >
+                      <option value="">Chọn Loại Xe</option>
+                      <option value="audi">Audi</option>
+                      <option value="bmw">BMW</option>
+                      <option value="ford">Ford</option>
+                      <option value="honda">Honda</option>
+                      <option value="toyota">Toyota</option>
+                      <option value="tesla">Tesla</option>
+                      <option value="volkswagen">Volkswagen</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      for="vehicle-model"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Mẫu Xe</label
+                    >
+                    <select
+                      id="vehicle-model"
+                      class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-gray-700 bg-white pr-8"
+                    >
+                      <option value="">Chọn Mẫu Xe</option>
+                      <option value="model1">Model 1</option>
+                      <option value="model2">Model 2</option>
+                      <option value="model3">Model 3</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      for="vehicle-usage"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Cách sử dụng chính</label
+                    >
+                    <select
+                      id="vehicle-usage"
+                      class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-gray-700 bg-white pr-8"
+                    >
+                      <option value="">Chọn cách sử dụng</option>
+                      <option value="commute">Commute to Work</option>
+                      <option value="pleasure">Personal/Pleasure</option>
+                      <option value="business">Business</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-8">
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Số dặm hàng năm</label
+                  >
+                  <div class="mb-2">
+                    <span id="mileage-value" class="text-primary font-medium"
+                      >10,000 miles</span
+                    >
+                  </div>
+                  <input
+                    type="range"
+                    id="mileage-slider"
+                    min="1000"
+                    max="30000"
+                    step="1000"
+                    value="10000"
+                    class="range-slider w-full"
+                  />
+                  <div class="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>1,000</span>
+                    <span>15,000</span>
+                    <span>30,000</span>
+                  </div>
+                </div>
+                <div class="flex justify-end">
+                  <button
+                    type="button"
+                    id="next-step-1"
+                    class="bg-primary text-white px-6 py-2.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 whitespace-nowrap"
+                  >
+                    Next Step
+                  </button>
+                </div>
+              </div>
+              <!-- Step 2: Driver Information -->
+              <div id="step-2" class="quote-step hidden">
+                <h4 class="text-lg font-semibold text-gray-900 mb-6">
+                  Thông Tin Người Đăng Ký
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label
+                      for="driver-age"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Tuổi</label
+                    >
+                    <input
+                      type="number"
+                      id="driver-age"
+                      min="16"
+                      max="99"
+                      class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-gray-700"
+                      placeholder="Enter age"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="driving-experience"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Số năm kinh nghiệm lái xe</label
+                    >
+                    <input
+                      type="number"
+                      id="driving-experience"
+                      min="0"
+                      max="80"
+                      class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-gray-700"
+                      placeholder="Enter years"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="driver-location"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Location (ZIP Code)</label
+                    >
+                    <input
+                      type="text"
+                      id="driver-location"
+                      class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-gray-700"
+                      placeholder="Enter ZIP code"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Driving Record</label
+                    >
+                    <div class="space-y-2">
+                      <label class="custom-checkbox">
+                        <input type="checkbox" id="accident-free" />
+                        <span class="checkmark"></span>
+                        <span class="ml-2">Accident-free in last 5 years</span>
+                      </label>
+                      <label class="custom-checkbox">
+                        <input type="checkbox" id="violation-free" />
+                        <span class="checkmark"></span>
+                        <span class="ml-2"
+                          >No traffic violations in last 3 years</span
+                        >
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-between">
+                  <button
+                    type="button"
+                    id="prev-step-2"
+                    class="bg-white text-primary border-2 border-primary px-6 py-2.5 !rounded-button font-semibold hover:bg-gray-50 transition-all duration-300 whitespace-nowrap"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    id="next-step-2"
+                    class="bg-primary text-white px-6 py-2.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 whitespace-nowrap"
+                  >
+                    Next Step
+                  </button>
+                </div>
+              </div>
+              <!-- Step 3: Coverage Options -->
+              <div id="step-3" class="quote-step hidden">
+                <h4 class="text-lg font-semibold text-gray-900 mb-6">
+                  Coverage Options
+                </h4>
+                <div class="mb-8">
+                  <label class="block text-sm font-medium text-gray-700 mb-4"
+                    >Coverage Level</label
+                  >
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <label
+                      class="relative border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors duration-300"
+                    >
+                      <input
+                        type="radio"
+                        name="coverage-level"
+                        value="basic"
+                        class="absolute opacity-0"
+                      />
+                      <div class="flex flex-col h-full">
+                        <span class="text-gray-900 font-medium mb-1"
+                          >Basic</span
+                        >
+                        <span class="text-gray-600 text-sm mb-4"
+                          >Minimum required coverage</span
+                        >
+                        <span class="text-primary font-semibold mt-auto"
+                          >$49/month</span
+                        >
+                      </div>
+                      <div
+                        class="absolute top-3 right-3 w-5 h-5 border-2 border-gray-300 rounded-full coverage-radio"
+                      ></div>
+                    </label>
+                    <label
+                      class="relative border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors duration-300"
+                    >
+                      <input
+                        type="radio"
+                        name="coverage-level"
+                        value="standard"
+                        class="absolute opacity-0"
+                        checked
+                      />
+                      <div class="flex flex-col h-full">
+                        <span class="text-gray-900 font-medium mb-1"
+                          >Standard</span
+                        >
+                        <span class="text-gray-600 text-sm mb-4"
+                          >Comprehensive coverage</span
+                        >
+                        <span class="text-primary font-semibold mt-auto"
+                          >$79/month</span
+                        >
+                      </div>
+                      <div
+                        class="absolute top-3 right-3 w-5 h-5 border-2 border-gray-300 rounded-full coverage-radio"
+                      ></div>
+                    </label>
+                    <label
+                      class="relative border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors duration-300"
+                    >
+                      <input
+                        type="radio"
+                        name="coverage-level"
+                        value="premium"
+                        class="absolute opacity-0"
+                      />
+                      <div class="flex flex-col h-full">
+                        <span class="text-gray-900 font-medium mb-1"
+                          >Premium</span
+                        >
+                        <span class="text-gray-600 text-sm mb-4"
+                          >Complete protection</span
+                        >
+                        <span class="text-primary font-semibold mt-auto"
+                          >$129/month</span
+                        >
+                      </div>
+                      <div
+                        class="absolute top-3 right-3 w-5 h-5 border-2 border-gray-300 rounded-full coverage-radio"
+                      ></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-8">
+                  <label class="block text-sm font-medium text-gray-700 mb-4"
+                    >Additional Options</label
+                  >
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div
+                      class="flex items-center justify-between p-4 border border-gray-300 rounded-lg"
+                    >
+                      <div>
+                        <span class="text-gray-900 font-medium"
+                          >Roadside Assistance</span
+                        >
+                        <p class="text-gray-600 text-sm">
+                          24/7 emergency assistance
+                        </p>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="roadside-assistance" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <div
+                      class="flex items-center justify-between p-4 border border-gray-300 rounded-lg"
+                    >
+                      <div>
+                        <span class="text-gray-900 font-medium"
+                          >Rental Car Coverage</span
+                        >
+                        <p class="text-gray-600 text-sm">
+                          Coverage for rental expenses
+                        </p>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="rental-coverage" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <div
+                      class="flex items-center justify-between p-4 border border-gray-300 rounded-lg"
+                    >
+                      <div>
+                        <span class="text-gray-900 font-medium"
+                          >Gap Insurance</span
+                        >
+                        <p class="text-gray-600 text-sm">
+                          Covers loan/lease gap
+                        </p>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="gap-insurance" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <div
+                      class="flex items-center justify-between p-4 border border-gray-300 rounded-lg"
+                    >
+                      <div>
+                        <span class="text-gray-900 font-medium"
+                          >New Car Replacement</span
+                        >
+                        <p class="text-gray-600 text-sm">
+                          For vehicles under 1 year old
+                        </p>
+                      </div>
+                      <label class="switch">
+                        <input type="checkbox" id="new-car-replacement" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-between">
+                  <button
+                    type="button"
+                    id="prev-step-3"
+                    class="bg-white text-primary border-2 border-primary px-6 py-2.5 !rounded-button font-semibold hover:bg-gray-50 transition-all duration-300 whitespace-nowrap"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    id="calculate-quote"
+                    class="bg-primary text-white px-6 py-2.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 whitespace-nowrap"
+                  >
+                    Calculate Quote
+                  </button>
+                </div>
+              </div>
+              <!-- Quote Result -->
+              <div id="quote-result" class="quote-step hidden">
+                <div class="text-center py-6">
+                  <div
+                    class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                  >
+                    <i class="ri-check-line ri-2x text-green-500"></i>
+                  </div>
+                  <h4 class="text-2xl font-semibold text-gray-900 mb-2">
+                    Your Estimated Quote
+                  </h4>
+                  <p class="text-gray-600 mb-6">
+                    Based on the information provided
+                  </p>
+                  <div class="bg-blue-50 rounded-lg p-6 mb-8 inline-block">
+                    <div class="text-5xl font-bold text-gray-900 mb-2">
+                      $<span id="quote-amount">89</span>
+                    </div>
+                    <div class="text-gray-600">per month</div>
+                  </div>
+                  <div class="max-w-md mx-auto mb-8">
+                    <div
+                      class="flex justify-between py-3 border-b border-gray-200"
+                    >
+                      <span class="text-gray-600">Base Premium</span>
+                      <span class="text-gray-900 font-medium">$79.00</span>
+                    </div>
+                    <div
+                      class="flex justify-between py-3 border-b border-gray-200"
+                    >
+                      <span class="text-gray-600">Roadside Assistance</span>
+                      <span class="text-gray-900 font-medium">$5.00</span>
+                    </div>
+                    <div
+                      class="flex justify-between py-3 border-b border-gray-200"
+                    >
+                      <span class="text-gray-600">Rental Car Coverage</span>
+                      <span class="text-gray-900 font-medium">$5.00</span>
+                    </div>
+                    <div class="flex justify-between py-3">
+                      <span class="text-gray-900 font-semibold"
+                        >Total Monthly Premium</span
+                      >
+                      <span class="text-primary font-bold">$89.00</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button
+                      type="button"
+                      id="recalculate-quote"
+                      class="bg-white text-primary border-2 border-primary px-6 py-2.5 !rounded-button font-semibold hover:bg-gray-50 transition-all duration-300 whitespace-nowrap"
+                    >
+                      Recalculate
+                    </button>
+                    <button
+                      type="button"
+                      class="bg-primary text-white px-8 py-2.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 whitespace-nowrap"
+                    >
+                      Purchase Policy
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Customer Reviews Section -->
+    <section id="reviews" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 slide-in"
+          >
+            What Our Customers Say
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto slide-in">
+            Don't just take our word for it. See what real drivers have to say
+            about their experience with our insurance.
+          </p>
+        </div>
+        <div class="relative">
+          <div
+            class="carousel flex overflow-x-auto pb-8 -mx-4 px-4 hide-scrollbar"
+          >
+            <!-- Review 1 -->
+            <div
+              class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4"
+            >
+              <div class="bg-white rounded-lg shadow-md p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="flex space-x-1 text-yellow-400">
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                  </div>
+                  <span class="ml-2 text-gray-600">5.0</span>
+                </div>
+                <p class="text-gray-700 mb-6">
+                 "Tôi đã gắn bó với công ty bảo hiểm này hơn 3 năm nay.
+                    Dịch vụ khách hàng của họ rất tuyệt vời và họ đã giúp quá trình yêu cầu bồi thường của tôi
+                    trở nên vô cùng suôn sẻ sau vụ tai nạn. Rất
+                    nên dùng!"
+                </p>
+                <div class="flex items-center">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20middle-aged%20man%2C%20business%20casual%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=review1&orientation=squarish"
+                    alt="Customer"
+                    class="w-12 h-12 rounded-full object-cover object-top"
+                  />
+                  <div class="ml-4">
+                    <h4 class="text-gray-900 font-medium">
+                      Trương Công Tuấn
+                    </h4>
+                    <p class="text-gray-600 text-sm">Khách Hàng Cao Cấp<p></p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Review 2 -->
+            <div
+              class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4"
+            >
+              <div class="bg-white rounded-lg shadow-md p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="flex space-x-1 text-yellow-400">
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-half-fill star"></i>
+                  </div>
+                  <span class="ml-2 text-gray-600">4.5</span>
+                </div>
+                <p class="text-gray-700 mb-6">
+                  "Mức giá cạnh tranh và phạm vi bảo hiểm toàn diện.
+                    Tôi đã tiết kiệm được gần 300 đô la một năm khi chuyển sang sử dụng dịch vụ của họ. Ứng dụng di động của họ giúp tôi dễ dàng quản lý hợp đồng bảo hiểm và gửi yêu cầu bồi thường."
+                </p>
+                <div class="flex items-center">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20young%20woman%2C%20business%20casual%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=review2&orientation=squarish"
+                    alt="Customer"
+                    class="w-12 h-12 rounded-full object-cover object-top"
+                  />
+                  <div class="ml-4">
+                    <h4 class="text-gray-900 font-medium">Nguyễn Ngọc An</h4>
+                    <p class="text-gray-600 text-sm">Khách Hàng Tiêu Chuẩn</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Review 3 -->
+            <div
+              class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4"
+            >
+              <div class="bg-white rounded-lg shadow-md p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="flex space-x-1 text-yellow-400">
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-line star"></i>
+                  </div>
+                  <span class="ml-2 text-gray-600">4.0</span>
+                </div>
+                <p class="text-gray-700 mb-6">
+                  "Their roadside assistance saved me when I got a flat tire on
+                  the highway. The technician arrived within 20 minutes and got
+                  me back on the road quickly. Worth every penny of my premium."
+                </p>
+                <div class="flex items-center">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20young%20man%2C%20casual%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=review3&orientation=squarish"
+                    alt="Customer"
+                    class="w-12 h-12 rounded-full object-cover object-top"
+                  />
+                  <div class="ml-4">
+                    <h4 class="text-gray-900 font-medium">David Martinez</h4>
+                    <p class="text-gray-600 text-sm">Basic Plan Customer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Review 4 -->
+            <div
+              class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4"
+            >
+              <div class="bg-white rounded-lg shadow-md p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="flex space-x-1 text-yellow-400">
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                    <i class="ri-star-fill star"></i>
+                  </div>
+                  <span class="ml-2 text-gray-600">5.0</span>
+                </div>
+                <p class="text-gray-700 mb-6">
+                  "After comparing multiple insurance providers, I chose this
+                  company for their transparent pricing and excellent coverage
+                  options. When I needed to file a claim, they processed it
+                  within 48 hours. Exceptional service!"
+                </p>
+                <div class="flex items-center">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20middle-aged%20woman%2C%20business%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=review4&orientation=squarish"
+                    alt="Customer"
+                    class="w-12 h-12 rounded-full object-cover object-top"
+                  />
+                  <div class="ml-4">
+                    <h4 class="text-gray-900 font-medium">Sarah Johnson</h4>
+                    <p class="text-gray-600 text-sm">Premium Plan Customer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center mt-8">
+            <button
+              id="prev-review"
+              class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-300 mr-4"
+            >
+              <i class="ri-arrow-left-s-line ri-lg"></i>
+            </button>
+            <button
+              id="next-review"
+              class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-300"
+            >
+              <i class="ri-arrow-right-s-line ri-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Call-to-Action Section -->
+    <section class="py-20 bg-white relative overflow-hidden">
+      <div
+        class="absolute inset-0 opacity-10"
+        style="background-image: url('https://readdy.ai/api/search-image?query=abstract%20pattern%20of%20car%20silhouettes%2C%20very%20light%20and%20subtle%2C%20modern%20design%2C%20minimalist%20style%2C%20perfect%20for%20background&width=1200&height=600&seq=ctabg&orientation=landscape'); background-size: cover;"
+      ></div>
+      <div class="container mx-auto px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 slide-in"
+          >
+            Ready to Get Protected on the Road?
+          </h2>
+          <p class="text-lg text-gray-600 mb-10 slide-in">
+            Join thousands of satisfied drivers who trust us with their vehicle
+            protection. Get your personalized quote today and drive with
+            confidence.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center slide-in">
+            <button
+              class="bg-primary text-white px-8 py-3.5 !rounded-button font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 whitespace-nowrap relative overflow-hidden"
+            >
+              Get Your Quote Now
+            </button>
+            <button
+              class="bg-white text-primary border-2 border-primary px-8 py-3.5 !rounded-button font-semibold hover:bg-gray-50 transition-all duration-300 whitespace-nowrap"
+            >
+              <div class="flex items-center">
+                <i class="ri-customer-service-2-line mr-2"></i>
+                <span>Speak to an Agent</span>
+              </div>
+            </button>
+          </div>
+          <div class="mt-12 flex flex-wrap justify-center gap-8 slide-in">
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 flex items-center justify-center text-primary"
+              >
+                <i class="ri-shield-check-line ri-2x"></i>
+              </div>
+              <span class="ml-2 text-gray-700 font-medium"
+                >Trusted by 10,000+ Drivers</span
+              >
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 flex items-center justify-center text-primary"
+              >
+                <i class="ri-secure-payment-line ri-2x"></i>
+              </div>
+              <span class="ml-2 text-gray-700 font-medium"
+                >Secure Online Payments</span
+              >
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 flex items-center justify-center text-primary"
+              >
+                <i class="ri-24-hours-line ri-2x"></i>
+              </div>
+              <span class="ml-2 text-gray-700 font-medium"
+                >24/7 Customer Support</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div>
+            <a href="#" class="text-3xl font-['Pacifico'] text-white mb-6 block"
+              >logo</a
+            >
+            <p class="text-gray-400 mb-6">
+              Providing reliable car insurance coverage since 2010. We're
+              committed to keeping you safe on the road with comprehensive
+              protection plans.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
+              >
+                <i class="ri-twitter-x-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#insurance"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Insurance Plans</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#features"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#calculator"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Quote Calculator</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#reviews"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Reviews</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <span class="ml-3 text-gray-400"
+                  >123 Insurance Blvd, Suite 500<br />New York, NY 10001</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="ml-3 text-gray-400">+1 (800) 123-4567</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="ml-3 text-gray-400">support@carinsurance.com</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5"
+                >
+                  <i class="ri-time-line"></i>
+                </div>
+                <span class="ml-3 text-gray-400"
+                  >Mon-Fri: 8AM - 8PM<br />Sat-Sun: 10AM - 6PM</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Subscribe to our newsletter for the latest updates and offers.
+            </p>
+            <form class="mb-4">
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  class="w-full px-4 py-2.5 bg-gray-800 border border-gray-700 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-gray-300"
+                />
+                <button
+                  type="submit"
+                  class="bg-primary text-white px-4 py-2.5 !rounded-r-button font-semibold hover:bg-blue-600 transition-colors duration-300 whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+            <div>
+              <h4 class="text-sm font-semibold mb-3 text-gray-300">
+                We Accept
+              </h4>
+              <div class="flex space-x-3">
+                <div
+                  class="w-10 h-6 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-visa-fill ri-lg"></i>
+                </div>
+                <div
+                  class="w-10 h-6 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-mastercard-fill ri-lg"></i>
+                </div>
+                <div
+                  class="w-10 h-6 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-paypal-fill ri-lg"></i>
+                </div>
+                <div
+                  class="w-10 h-6 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-apple-fill ri-lg"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-gray-800 text-center">
+          <p class="text-gray-400">
+            © 2025 Car Insurance Company. All rights reserved.
+          </p>
+        </div>
+      </div>
+      <button
+        id="scroll-to-top"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-blue-600"
+      >
+        <i class="ri-arrow-up-line ri-lg"></i>
+      </button>
+    </footer>
+    <script id="mobile-menu-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
+    <script id="scroll-animation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Scroll animations
+        const slideInElements = document.querySelectorAll(".slide-in");
+        const staggerItems = document.querySelectorAll(".stagger-item");
+        const progressBars = document.querySelectorAll(".progress-bar");
+        const scrollToTop = document.getElementById("scroll-to-top");
+        function checkScroll() {
+          // Slide in animations
+          slideInElements.forEach((element) => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight * 0.85) {
+              element.classList.add("visible");
+            }
+          });
+          // Stagger animations
+          staggerItems.forEach((element, index) => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight * 0.85) {
+              setTimeout(() => {
+                element.classList.add("visible");
+              }, index * 100);
+            }
+          });
+          // Progress bar animations
+          progressBars.forEach((bar) => {
+            const barTop = bar.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (barTop < windowHeight * 0.85) {
+              bar.classList.add("animate");
+            }
+          });
+          // Scroll to top button visibility
+          if (window.scrollY > 500) {
+            scrollToTop.classList.remove("opacity-0", "invisible");
+            scrollToTop.classList.add("opacity-100", "visible");
+          } else {
+            scrollToTop.classList.add("opacity-0", "invisible");
+            scrollToTop.classList.remove("opacity-100", "visible");
+          }
+          // Parallax effect
+          const parallaxElements = document.querySelectorAll(".parallax");
+          parallaxElements.forEach((element) => {
+            const scrollY = window.scrollY;
+            element.style.setProperty("--scroll-y", `${scrollY * 0.1}px`);
+          });
+        }
+        // Initial check
+        checkScroll();
+        // Check on scroll
+        window.addEventListener("scroll", checkScroll);
+        // Scroll to top functionality
+        scrollToTop.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+        // Button ripple effect
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            const x = e.clientX - e.target.getBoundingClientRect().left;
+            const y = e.clientY - e.target.getBoundingClientRect().top;
+            const ripple = document.createElement("span");
+            ripple.classList.add("ripple");
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            this.appendChild(ripple);
+            setTimeout(() => {
+              ripple.remove();
+            }, 600);
+          });
+        });
+      });
+    </script>
+    <script id="quote-calculator-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Quote calculator steps
+        const step1 = document.getElementById("step-1");
+        const step2 = document.getElementById("step-2");
+        const step3 = document.getElementById("step-3");
+        const quoteResult = document.getElementById("quote-result");
+        const nextStep1 = document.getElementById("next-step-1");
+        const nextStep2 = document.getElementById("next-step-2");
+        const prevStep2 = document.getElementById("prev-step-2");
+        const prevStep3 = document.getElementById("prev-step-3");
+        const calculateQuote = document.getElementById("calculate-quote");
+        const recalculateQuote = document.getElementById("recalculate-quote");
+        const progressBar = document.getElementById("progress-bar");
+        const progressText = document.getElementById("progress-text");
+        // Mileage slider
+        const mileageSlider = document.getElementById("mileage-slider");
+        const mileageValue = document.getElementById("mileage-value");
+        mileageSlider.addEventListener("input", function () {
+          const value = this.value;
+          mileageValue.textContent =
+            value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " miles";
+        });
+        // Step navigation
+        nextStep1.addEventListener("click", function () {
+          step1.classList.add("hidden");
+          step2.classList.remove("hidden");
+          progressBar.style.width = "66%";
+          progressText.textContent = "Step 2 of 3";
+        });
+        prevStep2.addEventListener("click", function () {
+          step2.classList.add("hidden");
+          step1.classList.remove("hidden");
+          progressBar.style.width = "33%";
+          progressText.textContent = "Step 1 of 3";
+        });
+        nextStep2.addEventListener("click", function () {
+          step2.classList.add("hidden");
+          step3.classList.remove("hidden");
+          progressBar.style.width = "100%";
+          progressText.textContent = "Step 3 of 3";
+        });
+        prevStep3.addEventListener("click", function () {
+          step3.classList.add("hidden");
+          step2.classList.remove("hidden");
+          progressBar.style.width = "66%";
+          progressText.textContent = "Step 2 of 3";
+        });
+        calculateQuote.addEventListener("click", function () {
+          step3.classList.add("hidden");
+          quoteResult.classList.remove("hidden");
+          // Simulate quote calculation
+          const quoteAmount = document.getElementById("quote-amount");
+          let count = 0;
+          const targetAmount = 89;
+          const duration = 1500;
+          const interval = 20;
+          const increment = targetAmount / (duration / interval);
+          const timer = setInterval(() => {
+            count += increment;
+            if (count >= targetAmount) {
+              clearInterval(timer);
+              count = targetAmount;
+            }
+            quoteAmount.textContent = Math.floor(count);
+          }, interval);
+        });
+        recalculateQuote.addEventListener("click", function () {
+          quoteResult.classList.add("hidden");
+          step1.classList.remove("hidden");
+          progressBar.style.width = "33%";
+          progressText.textContent = "Step 1 of 3";
+        });
+        // Radio button custom styling
+        const coverageRadios = document.querySelectorAll(
+          'input[name="coverage-level"]',
+        );
+        coverageRadios.forEach((radio) => {
+          radio.addEventListener("change", function () {
+            // Reset all radio indicators
+            document.querySelectorAll(".coverage-radio").forEach((indicator) => {
+              indicator.style.borderColor = "#d1d5db";
+              indicator.style.backgroundColor = "transparent";
+            });
+            // Style the selected radio
+            if (this.checked) {
+              const indicator = this.parentElement.querySelector(".coverage-radio");
+              indicator.style.borderColor = "#3b82f6";
+              indicator.style.backgroundColor = "#3b82f6";
+            }
+          });
+          // Initialize checked state
+          if (radio.checked) {
+            const indicator = radio.parentElement.querySelector(".coverage-radio");
+            indicator.style.borderColor = "#3b82f6";
+            indicator.style.backgroundColor = "#3b82f6";
+          }
+        });
+      });
+    </script>
+    <script id="review-carousel-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Reviews carousel
+        const carousel = document.querySelector(".carousel");
+        const carouselItems = document.querySelectorAll(".carousel-item");
+        const prevButton = document.getElementById("prev-review");
+        const nextButton = document.getElementById("next-review");
+        let currentIndex = 0;
+        const itemWidth = carouselItems[0].offsetWidth;
+        const itemsPerView =
+          window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+        const maxIndex = Math.max(0, carouselItems.length - itemsPerView);
+        function updateCarousel() {
+          const offset = currentIndex * itemWidth;
+          carousel.scrollTo({
+            left: offset,
+            behavior: "smooth",
+          });
+        }
+        prevButton.addEventListener("click", function () {
+          currentIndex = Math.max(0, currentIndex - 1);
+          updateCarousel();
+        });
+        nextButton.addEventListener("click", function () {
+          currentIndex = Math.min(maxIndex, currentIndex + 1);
+          updateCarousel();
+        });
+        // Update carousel on window resize
+        window.addEventListener("resize", function () {
+          const newItemsPerView =
+            window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+          const newMaxIndex = Math.max(0, carouselItems.length - newItemsPerView);
+          currentIndex = Math.min(currentIndex, newMaxIndex);
+          updateCarousel();
+        });
+      });
+    </script>
+  </body>
+</html>

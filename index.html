@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="frontend\cars website\css\style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"> <span>Buy</span>Cars </a>
+
+        <nav class="navbar">
+            <a href="#home">Trang Chủ</a>
+            <a href="#services">Dịch Vụ</a>
+            <a href="#vehicles">Các Mẫu Xe</a>
+            <a href="#featured">Nổi Bật</a>
+            <a href="#reviews">Đánh giá</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+
+        <div id="login-btn">
+            <button class="btn">Đăng Nhập</button>
+            <i class="far fa-user"></i>
+        </div>
+
+    </header>
+
+    <div class="login-form-container">
+
+        <span id="close-login-form" class="fas fa-times"></span>
+
+        <form action="">
+            <h3>user login</h3>
+            <input type="email" placeholder="email" class="box">
+            <input type="password" placeholder="password" class="box">
+            <p> forget your password <a href="#">click here</a> </p>
+            <input type="submit" value="login" class="btn">
+            <p>or login with</p>
+            <div class="buttons">
+                <a href="#" class="btn"> google </a>
+                <a href="#" class="btn"> facebook </a>
+            </div>
+            <p> don't have an account <a href="#">create one</a> </p>
+        </form>
+
+    </div>
+
+    <section class="home" id="home">
+
+        <h3 data-speed="-2" class="home-parallax">find your car</h3>
+
+        <img data-speed="5" class="home-parallax" src="image/homecar2.png" alt="">
+
+        <a data-speed="7" href="#" class="btn home-parallax">khám phá</a>
+
+    </section>
+
+    <section class="services gallery" id="services">
+
+        <h1 class="heading"><span>Trưng Bày</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box gllerybox">
+                <img src="https://i0.wp.com/theauto.page/wp-content/uploads/2020/11/E300-Coupe-1.jpg?fit=1024%2C683&ssl=1" alt="">
+            </div>
+
+            <div class="box gllerybox">
+                <img src="https://cdn.autopapo.com.br/box/uploads/2022/07/21161423/honda_civic_type_r_branco-frente-parado-em-pista-732x488.jpeg" alt="">
+            </div>
+
+            <div class="box gllerybox">
+                <img src="https://mazdasaigon.vn/storage/2023/10/xehay-cx3-240923-2.jpg" alt="">
+            </div>
+
+            <div class="box gllerybox">
+                <img src="https://mazdamotors.vn/media/kedadqq0/homepage_img.png" alt="">
+            </div>
+
+            <div class="box gllerybox">
+                <img src="image/toyota.jpg" alt="">
+            </div>
+
+            <div class="box gllerybox">
+                <img src="image/c300.jpg" alt="">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="vehicles" id="vehicles">
+
+        <h1 class="heading"> Mẫu Xe <span> Phổ Biến</span> </h1>
+
+        <div class="swiper vehicles-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide box">
+                    <img src="image/hd1-removebg-preview.png" alt="">
+                    <div class="content">
+                        <h3>HONDA</h3>
+                        <div class="price"> <span>price : </span> $62,000/- </div>
+                        <p>
+                            new
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+
+                        </p>
+                        <a href="html/showcarcivic.html" class="btn">Tìm Hiểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/toyota-corolla-altis-2251-removebg-preview.png" alt="">
+                    <div class="content">
+                        <h3>TOYOTA</h3>
+                        <div class="price"> <span>price : </span> $62,000/- </div>
+                        <p>
+                            new
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+
+                        </p>
+                        <a href="html/camry.html" class="btn">Tìm Hiểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/mazda.png" alt="">
+                    <div class="content">
+                        <h3>MAZDA</h3>
+                        <div class="price"> <span>price : </span> $62,000/- </div>
+                        <p>
+                            new
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+
+                        </p>
+                        <a href="html/mazda.html" class="btn">Tìm Hiểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/mec-removebg-preview.png" alt="">
+                    <div class="content">
+                        <h3>MERCEDES</h3>
+                        <div class="price"> <span>price : </span> $62,000/- </div>
+                        <p>
+                            new
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+                            <span class="fas fa-circle"></span> 183mph
+                        </p>
+                        <a href="html/showcarM.html" class="btn">Tìm Hiểu</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="services" id="services">
+
+        <h1 class="heading">Các<span> Dịch Vụ</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box myservice">
+                <i class="fas fa-car"></i>
+                <h3>Bán Xe</h3>
+                <p>Với đội ngũ nhân viên tư vấn tận tình giúp quý khách chọn những con xe ưng ý</p>
+                <a href="#" class="btn"> Đọc Thêm</a>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-tools"></i>
+                <h3>Bão Dưỡng Xe</h3>
+                <p>Đội ngũ thợ máy chuyên nghiệp, thiết bị hiện đại và dịch vụ khách hàng vô song.</p>
+                <a href="html/carsetting.html" class="btn">Đọc Thêm</a>
+                
+            </div>
+
+            <div class="box">
+                <i class="fas fa-car-crash"></i>
+                <h3>Bảo HIểm Xe </h3>
+                <p>Bảo hiểm toàn diện phù hợp với nhu cầu của bạn với mức giá cạnh tranh và dịch vụ đặc biệt.</p>
+                <a href="html/baohiem.html" class="btn"> Đọc Thêm</a>s
+            </div>
+
+            <div class="box">
+                <i class="fas fa-car-battery"></i>
+                <h3>Thay Pin Cho Xe</h3>
+                <p>Dịch vụ thay thế và kiểm tra ắc quy ô tô chuyên nghiệp.</p>
+                <a href="html/thaypin.html" class="btn"> Đọc Thêm</a>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-gas-pump"></i>
+                <h3>Thay Dầu</h3>
+                <p>Dịch vụ thay dầu chuyên nghiệp với dầu tổng hợp cao cấp và kiểm tra đa điểm toàn diện.</p>
+                <a href="html/thaydau.html" class="btn"> Đọc Thêm</a>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-headset"></i>
+                <h3>Chăm Sóc Khác Hàng</h3>
+                <p>Nhân Viên sẽ hỗ trợ chăm sóc online cho khách hàng 24/7 </p>
+                <a href="#" class="btn"> Đọc Thêm</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="featured" id="featured">
+
+        <h1 class="heading"> <span>Mẫu Xe </span> Bán Chạy </h1>
+
+        <div class="swiper featured-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide box">
+                    <img src="image/md3.jpg" alt="">
+                    <div class="content">
+                        <h3>MAZDA</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="price">$55,000/-</div>
+                        <a href="html/mazda.html" class="btn">Tìm Hiểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/c300.jpg" alt="">
+                    <div class="content">
+                        <h3>MERCEDES</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="price">$55,000/-</div>
+                        <a href="html/showcarM.html" class="btn">Tìm Hiểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/camry.png" alt="">
+                    <div class="content">
+                        <h3>TOYOTA</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="price">$55,000/-</div>
+                        <a href="html/camry.html" class="btn">Tìm Hiểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/dendencivic.png" alt="">
+                    <div class="content">
+                        <h3>HONDA</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="price">$55,000/-</div>
+                        <!-- <a href="#" class="btn">Tìm Hiểu</a> -->
+                         <a href="html/showcarcivic.html" class="btn" >Tìm Hiểu</a>    
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+        <div class="swiper featured-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide box">
+                    <img src="image/civicmaudo2.png" alt="">
+                    <div class="content">
+                        <h3>HONDA-CIVIC</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="price">$55,000/-</div>
+                        <a href="html/showcarcivic.html" class="btn">Tìm HIểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/homemazda.png" alt="">
+                    <div class="content">
+                        <h3>MAZDA</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="price">$55,000/-</div>
+                        <a href="html/mazda.html" class="btn">Tìm HIểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="https://mercedesphumyhung.com.vn/wp-content/uploads/2024/05/Mercedes-C300-AMG-Mau-Do.jpg" alt="">
+                    <div class="content">
+                        <h3>MERCEDES-C300</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="price">$55,000/-</div>
+                        <a href="html/showcarM.html" class="btn">Tìm HIểu</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="https://vietnam-toyota.com.vn/wp-content/uploads/2020/04/Camry-2023-Do.png" alt="">
+                    <div class="content">
+                        <h3>TOYOTA-CAMRY</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="price">$55,000/-</div>
+                        <a href="html/camry.html" class="btn">Tìm HIểu</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+    </section>
+
+    <section class="newsletter">
+
+        <h3>Đăng Ký Để Cập Nhật Mới Nhất</h3>
+        <p>Khách Hàng Đăng Ký Để Cập Nhật Các Thông Tin Và Những Ưu Đãi mới nhất của Showroom</p>
+
+        <form action="">
+            <input type="email" placeholder="enter your email">
+            <input type="submit" value="subscribe">
+        </form>
+
+    </section>
+
+    <section class="reviews" id="reviews">
+
+        <h1 class="heading"> Đánh Giá của <span> Khách Hàng </span> </h1>
+
+        <div class="swiper review-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide box">
+                    <img src="image/pic-1.png" alt="">
+                    <div class="content">
+                        <p>Lần đầu tiên tôi đến showroom, mọi thứ đều rất chuyên nghiệp và chu đáo. Xe được chuẩn bị sạch sẽ, quy trình lái thử nhanh chóng, tiện lợi. 
+                            Tôi có cảm giác như đang được chăm sóc tận tâm như một khách VIP vậy.</p>
+                        <h3>Nguyễn Trọng Nhân</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/pic-2.png" alt="">
+                    <div class="content">
+                        <p>Trải nghiệm lái thử rất thực tế và giúp tôi đưa ra quyết định dễ dàng hơn. 
+                            Đội ngũ nhân viên không gây áp lực mua xe mà chỉ tập trung giúp tôi hiểu rõ sản phẩm. Rất đáng khen!</p>
+                        <h3>Trương Mỹ Lan</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/pic-3.png" alt="">
+                    <div class="content">
+                        <p>Tôi thật sự ấn tượng với chất lượng dịch vụ tại showroom. Nhân viên tư vấn rất nhiệt tình, 
+                            am hiểu sản phẩm và luôn sẵn sàng giải đáp mọi thắc mắc. Chiếc xe lái thử vận hành êm ái, 
+                            nội thất hiện đại và cảm giác lái rất tuyệt vời</p>
+                        <h3>Trần Văn Nam</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/pic-4.png" alt="">
+                    <div class="content">
+                        <p>Không gian showroom sang trọng, xe trưng bày đa dạng và được bảo quản rất tốt. Tôi đã được hướng dẫn chi tiết từng tính năng của xe. 
+                            Thật sự hài lòng và sẽ giới thiệu bạn bè đến đây.</p>
+                        <h3>Nguyễn Ngọc Mai</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/pic-5.png" alt="">
+                    <div class="content">
+                        <p>Chiếc xe tôi lái thử có khả năng tăng tốc mạnh mẽ, hệ thống giải trí hiện đại và cách âm tốt. 
+                            Nhân viên kỹ thuật cũng kiểm tra xe rất kỹ càng trước khi tôi trải nghiệm. Cảm giác rất yên tâm.</p>
+                        <h3>Alex Nguyen</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/pic-6.png" alt="">
+                    <div class="content">
+                        <p>Tôi đến cùng gia đình để trải nghiệm xe, và showroom đã chuẩn bị mọi thứ rất chu đáo. Xe sạch sẽ, 
+                            không gian rộng rãi và nhân viên cực kỳ thân thiện với cả trẻ nhỏ. Một trải nghiệm mua sắm đáng nhớ..</p>
+                        <h3>Hoàng Mai</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading"><span> Liên Hệ Với </span> Chúng Tôi </h1>
+
+        <div class="row">
+
+            <iframe class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d416.2790511692482!2d111.42761760339076!3d-6.969698022806218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7740e3a326c045%3A0x6f5bfd9bc5ace9b8!2sBlora%2C%20Kec.%20Blora%2C%20Kabupaten%20Blora%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1686958573934!5m2!1sid!2sid"
+                allowfullscreen="" loading="lazy"></iframe>
+
+            <form action="">
+                <h3>get in touch</h3>
+                <input type="text" placeholder="your name" class="box">
+                <input type="email" placeholder="your email" class="box">
+                <input type="tel" placeholder="subject" class="box">
+                <textarea placeholder="your message" class="box" cols="30" rows="10"></textarea>
+                <input type="submit" value="send message" class="btn">
+            </form>
+
+        </div>
+
+    </section>
+
+    <section class="footer" id="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Chi Nhánh Của Chúng Tôi</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Indonesia </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Japan </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> France </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Russia </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
+            </div>
+
+            <div class="box">
+                <h3>Liên Kết</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Trang Chủ </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Dịch Vụ </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Các Mẫu Xe </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Xe Nổi Bật </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Đánh Giá </a>
+            </div>
+
+            <div class="box">
+                <h3>Thông Tin Liên Hệ</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +62031459871 </a>
+                <a href="#"> <i class="fas fa-phone"></i> 2031459871 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> fregiphovide@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Indonesia </a>
+
+
+            </div>
+
+    </section>
+
+
+
+
+
+    <section class="contact-info" id="contact-info">
+        <div class="social">
+            <a href="https://www.facebook.com/?stype=lo&flo=1&deoia=1&jlou=AfdJGX9ElG06VhqwPCTaA3ENOtQTouX5IgGtvo1OHUuQT5jVQoYQdceNAINDVBSregVEm-CDpMaLHEN5fXfaIt71fhGCZLcNN2_I-6VOQALHMQ&smuh=43775&lh=Ac-mvh-unuAre0pfvHs"><i class='bx bxl-facebook'></i></a>
+            <a href="https://www.instagram.com/?flo=true"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-youtube'></i></a>
+        </div>
+        <div class="links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Our Company</a>
+            <a href="#">Term Of Use</a>
+        </div>
+        <p>&#169; All Right Reserved @ardksfs_</p>
+    </section>
+
+
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <script src="frontend\cars website\js\script.js"></script>
+
+</body>
+
+</html>

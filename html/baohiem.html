@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Car Insurance | Protect Your Journey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3b82f6", secondary: "#0f172a" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Inter', sans-serif;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+      .hero-section {
+          background-image: url('https://readdy.ai/api/search-image?query=A%20modern%20luxury%20car%20driving%20on%20a%20scenic%20coastal%20road%20with%20beautiful%20sunset%20in%20the%20background.%20The%20left%20side%20of%20the%20image%20has%20a%20clean%20gradient%20that%20transitions%20smoothly%20from%20white%20to%20transparent%2C%20providing%20space%20for%20text.%20The%20image%20should%20look%20premium%2C%20elegant%2C%20and%20convey%20a%20sense%20of%20safety%20and%20freedom.%20The%20car%20should%20be%20slightly%20blurred%20to%20create%20a%20sense%20of%20motion.&width=1920&height=800&seq=car1&orientation=landscape');
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+      .custom-checkbox {
+          display: inline-block;
+          position: relative;
+          cursor: pointer;
+      }
+      .custom-checkbox input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+      }
+      .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: 2px solid #e2e8f0;
+          border-radius: 4px;
+      }
+      .custom-checkbox:hover input ~ .checkmark {
+          border-color: #cbd5e1;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+          background-color: #3b82f6;
+          border-color: #3b82f6;
+      }
+      .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+          display: block;
+      }
+      .custom-checkbox .checkmark:after {
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+      .logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;            
+            padding: 10px;
+            text-decoration: none; 
+            display: inline-block;
+            margin-right: 100px;
+        }
+
+        .logo .buy {
+            color: #ff8a00; 
+        }
+
+        .logo .cars {
+            color: #004d99;
+        }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center">
+          <a href="#" class="logo">
+                <span class="buy">Buy</span><span class="cars">Cars</span>
+            </a>
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#"
+              class="text-gray-900 font-medium hover:text-primary transition"
+              >Home</a
+            >
+            <a href="#" class="text-gray-600 hover:text-primary transition"
+              >Coverage</a
+            >
+            <a href="#" class="text-gray-600 hover:text-primary transition"
+              >Claims</a
+            >
+            <a href="#" class="text-gray-600 hover:text-primary transition"
+              >About Us</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a
+            href="#"
+            class="text-gray-600 hover:text-primary transition hidden md:block"
+            >Login</a
+          >
+          <a
+            href="#quote"
+            class="bg-primary text-white px-6 py-2.5 !rounded-button font-medium hover:bg-blue-600 transition shadow-sm whitespace-nowrap"
+            >Get a Quote</a
+          >
+          <button
+            class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+          >
+            <i class="ri-menu-line ri-lg"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative">
+      <div class="container mx-auto px-4 py-24 md:py-32 w-full">
+        <div class="max-w-xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Lái xe với sự tự tin và an tâm
+          </h1>
+          <p class="text-lg text-gray-700 mb-8">
+            Bảo hiểm toàn diện phù hợp với nhu cầu của bạn với mức giá cạnh tranh
+                và dịch vụ đặc biệt. Tham gia cùng hàng ngàn tài xế hài lòng ngay hôm nay.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#quote"
+              class="bg-primary text-white px-8 py-3.5 !rounded-button font-medium hover:bg-blue-600 transition shadow-md text-center whitespace-nowrap"
+              >Get Your Quote Now</a
+            >
+            <a
+              href="#coverage"
+              class="bg-white text-gray-800 px-8 py-3.5 !rounded-button font-medium hover:bg-gray-100 transition border border-gray-200 text-center whitespace-nowrap"
+              >View Coverage Options</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Quote Calculator -->
+    <section id="quote" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div
+          class="max-w-4xl mx-auto bg-white shadow-lg !rounded-xl overflow-hidden"
+        >
+          <div class="bg-primary text-white p-6">
+            <h2 class="text-2xl font-semibold">Nhận báo giá nhanh của bạn</h2>
+            <p class="mt-1 opacity-90">
+              Điền thông tin bên dưới để có báo giá ngay lập tức
+            </p>
+          </div>
+          <div class="p-6 md:p-8">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label
+                  for="vehicle-type"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Loại xe</label
+                >
+                <div class="relative">
+                  <div
+                    class="border border-gray-300 !rounded-button px-4 py-2.5 flex items-center justify-between cursor-pointer bg-white"
+                  >
+                    <span class="text-gray-800">Sedan</span>
+                    <div
+                      class="w-5 h-5 flex items-center justify-center text-gray-500"
+                    >
+                      <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label
+                  for="vehicle-year"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Năm đăng ký</label
+                >
+                <div class="relative">
+                  <div
+                    class="border border-gray-300 !rounded-button px-4 py-2.5 flex items-center justify-between cursor-pointer bg-white"
+                  >
+                    <span class="text-gray-800">2025</span>
+                    <div
+                      class="w-5 h-5 flex items-center justify-center text-gray-500"
+                    >
+                      <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label
+                  for="driver-age"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Tuổi</label
+                >
+                <input
+                  type="number"
+                  id="driver-age"
+                  class="w-full border border-gray-300 !rounded-button px-4 py-2.5 text-gray-800 bg-white"
+                  placeholder="Enter your age"
+                  min="16"
+                  max="100"
+                />
+              </div>
+              <div>
+                <label
+                  for="zip-code"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >ZIP Code</label
+                >
+                <input
+                  type="text"
+                  id="zip-code"
+                  class="w-full border border-gray-300 !rounded-button px-4 py-2.5 text-gray-800 bg-white"
+                  placeholder="Enter your ZIP code"
+                />
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-3"
+                  >Loại bảo hiểm</label
+                >
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div
+                    class="border border-gray-200 !rounded-button p-4 cursor-pointer hover:border-primary hover:bg-blue-50 transition"
+                  >
+                    <div class="flex items-start">
+                      <div
+                        class="w-5 h-5 flex items-center justify-center mr-3 mt-0.5"
+                      >
+                        <div
+                          class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center"
+                        >
+                          <div
+                            class="w-2.5 h-2.5 rounded-full bg-primary"
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-medium text-gray-900">Nền tảng</h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                          Chỉ bảo hiểm trách nhiệm
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="border border-primary !rounded-button p-4 cursor-pointer bg-blue-50"
+                  >
+                    <div class="flex items-start">
+                      <div
+                        class="w-5 h-5 flex items-center justify-center mr-3 mt-0.5"
+                      >
+                        <div
+                          class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center"
+                        >
+                          <div
+                            class="w-2.5 h-2.5 rounded-full bg-primary"
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-medium text-gray-900">Tiêu chuẩn</h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                          Trách nhiệm + va chạm
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="border border-gray-200 !rounded-button p-4 cursor-pointer hover:border-primary hover:bg-blue-50 transition"
+                  >
+                    <div class="flex items-start">
+                      <div
+                        class="w-5 h-5 flex items-center justify-center mr-3 mt-0.5"
+                      >
+                        <div
+                          class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center"
+                        ></div>
+                      </div>
+                      <div>
+                        <h4 class="font-medium text-gray-900">Cao cấp</h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                          Toàn diện đầy đủ
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="md:col-span-2 flex justify-center">
+                <button
+                  type="submit"
+                  class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-blue-600 transition shadow-sm mt-2 whitespace-nowrap"
+                >
+                  Tính báo giá của tôi
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Insurance Coverage Options -->
+    <section id="coverage" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Tùy chọn bảo hiểm
+          </h2>
+          <p class="text-gray-600">
+            Chọn phạm vi bảo hiểm hoàn hảo phù hợp với nhu cầu và ngân sách của bạn. Tất cả
+            các gói đều bao gồm dịch vụ hỗ trợ bên đường 24/7 và dịch vụ khách hàng
+            từng đoạt giải thưởng của chúng tôi.    
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Basic Plan -->
+          <div
+            class="bg-white !rounded-xl shadow-md overflow-hidden transition-transform hover:translate-y-[-5px]"
+          >
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Basic Coverage
+              </h3>
+              <div class="text-sm text-gray-500 mb-4">
+                Essential protection for budget-conscious drivers
+              </div>
+              <div class="text-3xl font-bold text-gray-900 mb-6">
+                $49<span class="text-base font-normal text-gray-500"
+                  >/month</span
+                >
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Bodily Injury Liability</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Property Damage Liability</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Uninsured Motorist Coverage</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-gray-400 mt-0.5 mr-3"
+                  >
+                    <i class="ri-close-line"></i>
+                  </div>
+                  <span class="text-gray-400">Collision Coverage</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-gray-400 mt-0.5 mr-3"
+                  >
+                    <i class="ri-close-line"></i>
+                  </div>
+                  <span class="text-gray-400">Comprehensive Coverage</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-white text-primary border border-primary px-6 py-2.5 !rounded-button font-medium hover:bg-blue-50 transition whitespace-nowrap"
+              >
+                Select Plan
+              </button>
+            </div>
+          </div>
+
+          <!-- Standard Plan -->
+          <div
+            class="bg-white !rounded-xl shadow-lg overflow-hidden relative transform transition-transform hover:translate-y-[-5px] border-2 border-primary"
+          >
+            <div
+              class="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-sm font-medium"
+            >
+              Most Popular
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Standard Coverage
+              </h3>
+              <div class="text-sm text-gray-500 mb-4">
+                Balanced protection for most drivers
+              </div>
+              <div class="text-3xl font-bold text-gray-900 mb-6">
+                $79<span class="text-base font-normal text-gray-500"
+                  >/month</span
+                >
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Bodily Injury Liability</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Property Damage Liability</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Uninsured Motorist Coverage</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Collision Coverage</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-gray-400 mt-0.5 mr-3"
+                  >
+                    <i class="ri-close-line"></i>
+                  </div>
+                  <span class="text-gray-400">Comprehensive Coverage</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-primary text-white px-6 py-2.5 !rounded-button font-medium hover:bg-blue-600 transition shadow-sm whitespace-nowrap"
+              >
+                Select Plan
+              </button>
+            </div>
+          </div>
+
+          <!-- Premium Plan -->
+          <div
+            class="bg-white !rounded-xl shadow-md overflow-hidden transition-transform hover:translate-y-[-5px]"
+          >
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Premium Coverage
+              </h3>
+              <div class="text-sm text-gray-500 mb-4">
+                Complete protection for ultimate peace of mind
+              </div>
+              <div class="text-3xl font-bold text-gray-900 mb-6">
+                $129<span class="text-base font-normal text-gray-500"
+                  >/month</span
+                >
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Bodily Injury Liability</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Property Damage Liability</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Uninsured Motorist Coverage</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Collision Coverage</span>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-3"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span class="text-gray-700">Comprehensive Coverage</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-white text-primary border border-primary px-6 py-2.5 !rounded-button font-medium hover:bg-blue-50 transition whitespace-nowrap"
+              >
+                Select Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="#"
+            class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition"
+          >
+            <span>Compare all features</span>
+            <div class="w-5 h-5 flex items-center justify-center ml-1">
+              <i class="ri-arrow-right-line"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Tại sao chọn bảo hiểm của chúng tôi
+          </h2>
+          <p class="text-gray-600">
+            Chúng tôi cam kết cung cấp trải nghiệm bảo hiểm ô tô tốt nhất với
+            những quyền lợi thực sự quan trọng đối với những người lái xe như bạn.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div
+            class="bg-white p-6 !rounded-xl shadow-sm border border-gray-100 text-center"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 !rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center text-primary"
+              >
+                <i class="ri-shield-check-line ri-xl"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Bảo hiểm toàn diện
+            </h3>
+            <p class="text-gray-600">
+              Bảo vệ chống lại tai nạn, trộm cắp, thiên tai, v.v.
+              với các tùy chọn có thể tùy chỉnh.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 !rounded-xl shadow-sm border border-gray-100 text-center"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 !rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center text-primary"
+              >
+                <i class="ri-money-dollar-circle-line ri-xl"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Giá cạnh tranh
+            </h3>
+            <p class="text-gray-600">
+              Tiết kiệm tới 30% so với các nhà cung cấp khác với mô hình định giá được cá nhân hóa của chúng tôi.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 !rounded-xl shadow-sm border border-gray-100 text-center"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 !rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center text-primary"
+              >
+                <i class="ri-customer-service-2-line ri-xl"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Hỗ trợ khách hàng 24/7
+            </h3>
+            <p class="text-gray-600">
+              Đội ngũ tận tâm của chúng tôi luôn sẵn sàng hỗ trợ bạn giải đáp mọi thắc mắc hoặc khiếu nại.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 !rounded-xl shadow-sm border border-gray-100 text-center"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 !rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center text-primary"
+              >
+                <i class="ri-roadster-line ri-xl"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Hỗ trợ bên đường
+            </h3>
+            <p class="text-gray-600">
+              Nhận trợ giúp về kéo xe, lốp xẹp, kích bình và nhiều hơn nữa, mọi lúc và mọi nơi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Được tài xế trên toàn quốc tin tưởng
+          </h2>
+          <p class="text-gray-600">
+            Tham gia cùng hàng ngàn khách hàng hài lòng tin tưởng chúng tôi về nhu cầu bảo hiểm ô tô của họ.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <!-- Customer Reviews -->
+          <div class="bg-white !rounded-xl shadow-sm p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+              Đánh giá của khách hàng
+            </h3>
+
+            <div class="space-y-6">
+              <div class="border-b border-gray-100 pb-6">
+                <div class="flex items-center mb-2">
+                  <div class="flex text-yellow-400">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                  </div>
+                  <span class="ml-2 text-gray-700 font-medium">5.0</span>
+                </div>
+                <p class="text-gray-700 mb-2">
+                  "Quy trình khiếu nại diễn ra vô cùng suôn sẻ. Sau vụ tai nạn,
+                    tôi lo lắng về sự phiền phức, nhưng nhóm của họ đã hướng dẫn tôi
+                    từng bước. Khiếu nại của tôi đã được chấp thuận nhanh chóng và tôi
+                    đã có thể quay lại đường ngay lập tức!"
+                </p>
+                <div class="flex items-center">
+                  <div
+                    class="w-8 h-8 bg-blue-100 !rounded-full flex items-center justify-center mr-3"
+                  >
+                    <span class="text-primary font-medium text-sm">B</span>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-gray-900">
+                      Nguyễn Văn Bình
+                    </div>
+                    <div class="text-xs text-gray-500">Khách hàng từ năm 2021</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center mb-2">
+                  <div class="flex text-yellow-400">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                  <span class="ml-2 text-gray-700 font-medium">4.5</span>
+                </div>
+                <p class="text-gray-700 mb-2">
+                  "Tôi đã tiết kiệm được hơn 400 đô la mỗi năm kể từ khi chuyển sang
+                    bảo hiểm này. Mức giá của họ rất cạnh tranh và phạm vi bảo hiểm
+                    thậm chí còn tốt hơn so với nhà cung cấp trước đây của tôi. Ứng dụng di động giúp
+                    quản lý hợp đồng bảo hiểm của tôi dễ dàng."
+                </p>
+                <div class="flex items-center">
+                  <div
+                    class="w-8 h-8 bg-blue-100 !rounded-full flex items-center justify-center mr-3"
+                  >
+                    <span class="text-primary font-medium text-sm">H</span>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-gray-900">
+                      Hồ Ngọc Hà
+                    </div>
+                    <div class="text-xs text-gray-500">Khách hàng từ năm 2022</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications and Partners -->
+          <div class="bg-white !rounded-xl shadow-sm p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+              Certifications & Partners
+            </h3>
+
+            <div class="mb-6">
+              <h4 class="text-gray-800 font-medium mb-3">
+                Industry Certifications
+              </h4>
+              <div class="grid grid-cols-3 gap-4">
+                <div
+                  class="border border-gray-200 !rounded-lg p-3 flex items-center justify-center"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-gray-700 mr-2"
+                  >
+                    <i class="ri-award-fill ri-lg"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-800"
+                    >A+ Rating</span
+                  >
+                </div>
+                <div
+                  class="border border-gray-200 !rounded-lg p-3 flex items-center justify-center"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-gray-700 mr-2"
+                  >
+                    <i class="ri-shield-star-fill ri-lg"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-800"
+                    >ISO 27001</span
+                  >
+                </div>
+                <div
+                  class="border border-gray-200 !rounded-lg p-3 flex items-center justify-center"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-gray-700 mr-2"
+                  >
+                    <i class="ri-secure-payment-fill ri-lg"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-800">PCI DSS</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-gray-800 font-medium mb-3">Our Partners</h4>
+              <div class="grid grid-cols-4 gap-4">
+                <div
+                  class="border border-gray-200 !rounded-lg p-3 flex items-center justify-center"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-gray-700"
+                  >
+                    <i class="ri-bank-fill ri-lg"></i>
+                  </div>
+                </div>
+                <div
+                  class="border border-gray-200 !rounded-lg p-3 flex items-center justify-center"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-gray-700"
+                  >
+                    <i class="ri-mastercard-fill ri-lg"></i>
+                  </div>
+                </div>
+                <div
+                  class="border border-gray-200 !rounded-lg p-3 flex items-center justify-center"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-gray-700"
+                  >
+                    <i class="ri-visa-fill ri-lg"></i>
+                  </div>
+                </div>
+                <div
+                  class="border border-gray-200 !rounded-lg p-3 flex items-center justify-center"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-gray-700"
+                  >
+                    <i class="ri-paypal-fill ri-lg"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+          <div class="bg-white !rounded-xl shadow-sm p-6">
+            <div class="text-3xl font-bold text-primary mb-2">98%</div>
+            <div class="text-gray-700">Customer Satisfaction</div>
+          </div>
+          <div class="bg-white !rounded-xl shadow-sm p-6">
+            <div class="text-3xl font-bold text-primary mb-2">250K+</div>
+            <div class="text-gray-700">Active Policies</div>
+          </div>
+          <div class="bg-white !rounded-xl shadow-sm p-6">
+            <div class="text-3xl font-bold text-primary mb-2">15 min</div>
+            <div class="text-gray-700">Avg. Claim Response</div>
+          </div>
+          <div class="bg-white !rounded-xl shadow-sm p-6">
+            <div class="text-3xl font-bold text-primary mb-2">50</div>
+            <div class="text-gray-700">States Covered</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+            <p class="text-gray-600 mb-8">
+              Have questions about our coverage options? Our team is here to
+              help. Reach out to us through any of the following channels.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 bg-blue-100 !rounded-full flex items-center justify-center mr-4"
+                >
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-phone-line"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-gray-900 mb-1">
+                    Phone Support
+                  </h3>
+                  <p class="text-gray-600">
+                    Call us at
+                    <a
+                      href="tel:+18005551234"
+                      class="text-primary hover:underline"
+                      >1-800-555-1234</a
+                    >
+                  </p>
+                  <p class="text-sm text-gray-500 mt-1">
+                    Monday-Friday: 8am-8pm ET<br />Saturday: 9am-5pm ET
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 bg-blue-100 !rounded-full flex items-center justify-center mr-4"
+                >
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-mail-line"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-gray-900 mb-1">Email</h3>
+                  <p class="text-gray-600">
+                    <a
+                      href="mailto:support@carinsurance.com"
+                      class="text-primary hover:underline"
+                      >support@carinsurance.com</a
+                    >
+                  </p>
+                  <p class="text-sm text-gray-500 mt-1">
+                    We typically respond within 24 hours
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 bg-blue-100 !rounded-full flex items-center justify-center mr-4"
+                >
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-map-pin-line"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-gray-900 mb-1">
+                    Office Location
+                  </h3>
+                  <p class="text-gray-600">
+                    123 Insurance Plaza, Suite 500<br />New York, NY 10001
+                  </p>
+                  <p class="text-sm text-gray-500 mt-1">
+                    Open for in-person appointments
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="bg-white !rounded-xl shadow-md p-6 border border-gray-100"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                Send Us a Message
+              </h3>
+              <form>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label
+                      for="first-name"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >First Name</label
+                    >
+                    <input
+                      type="text"
+                      id="first-name"
+                      class="w-full border border-gray-300 !rounded-button px-4 py-2.5 text-gray-800 bg-white"
+                      placeholder="Enter your first name"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="last-name"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Last Name</label
+                    >
+                    <input
+                      type="text"
+                      id="last-name"
+                      class="w-full border border-gray-300 !rounded-button px-4 py-2.5 text-gray-800 bg-white"
+                      placeholder="Enter your last name"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full border border-gray-300 !rounded-button px-4 py-2.5 text-gray-800 bg-white"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    for="phone"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Phone (optional)</label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="w-full border border-gray-300 !rounded-button px-4 py-2.5 text-gray-800 bg-white"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    for="message"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    rows="4"
+                    class="w-full border border-gray-300 !rounded-button px-4 py-2.5 text-gray-800 bg-white"
+                    placeholder="How can we help you?"
+                  ></textarea>
+                </div>
+
+                <div class="mb-6">
+                  <label
+                    class="custom-checkbox pl-7 text-sm text-gray-700 block relative"
+                  >
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    I agree to receive communications about offers and services.
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-blue-600 transition shadow-sm whitespace-nowrap"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Live Chat Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+      <button
+        class="bg-primary text-white w-14 h-14 !rounded-full shadow-lg flex items-center justify-center hover:bg-blue-600 transition"
+      >
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-chat-3-line ri-lg"></i>
+        </div>
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <a
+              href="#"
+              class="text-2xl font-['Pacifico'] text-white mb-4 inline-block"
+              >logo</a
+            >
+            <p class="text-gray-400 mb-6">
+              Providing reliable car insurance coverage since 2005. We're
+              committed to keeping you protected on the road.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 !rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-800 transition"
+              >
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-facebook-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 !rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-800 transition"
+              >
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-twitter-x-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 !rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-800 transition"
+              >
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-instagram-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 !rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-800 transition"
+              >
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-linkedin-fill"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Coverage Options</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Claims Process</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Resources</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Insurance Guide</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Safe Driving Tips</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Customer Support</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Subscribe to our newsletter for the latest updates and offers.
+            </p>
+            <form class="mb-4">
+              <div class="flex">
+                <input
+                  type="email"
+                  class="w-full border-none !rounded-l-button px-4 py-2.5 text-gray-800 bg-white"
+                  placeholder="Your email address"
+                />
+                <button
+                  type="submit"
+                  class="bg-primary text-white px-4 py-2.5 !rounded-r-button font-medium hover:bg-blue-600 transition whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+            <div class="flex space-x-3">
+              <div class="w-10 h-6 flex items-center justify-center">
+                <i class="ri-visa-fill ri-lg text-gray-400"></i>
+              </div>
+              <div class="w-10 h-6 flex items-center justify-center">
+                <i class="ri-mastercard-fill ri-lg text-gray-400"></i>
+              </div>
+              <div class="w-10 h-6 flex items-center justify-center">
+                <i class="ri-paypal-fill ri-lg text-gray-400"></i>
+              </div>
+              <div class="w-10 h-6 flex items-center justify-center">
+                <i class="ri-apple-fill ri-lg text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8">
+          <div
+            class="flex flex-col md:flex-row md:justify-between items-center"
+          >
+            <div class="text-gray-500 text-sm mb-4 md:mb-0">
+              © 2025 Car Insurance Company. All rights reserved.
+            </div>
+            <div class="flex space-x-4 text-sm text-gray-500">
+              <a href="#" class="hover:text-gray-400 transition"
+                >Privacy Policy</a
+              >
+              <a href="#" class="hover:text-gray-400 transition"
+                >Terms of Service</a
+              >
+              <a href="#" class="hover:text-gray-400 transition">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script id="vehicleTypeDropdown">
+      document.addEventListener("DOMContentLoaded", function () {
+        // This would be expanded to include actual dropdown functionality
+        const vehicleTypeDropdown = document.querySelector(
+          '[for="vehicle-type"] + div',
+        );
+        if (vehicleTypeDropdown) {
+          vehicleTypeDropdown.addEventListener("click", function () {
+            // Dropdown toggle logic would go here
+            console.log("Vehicle type dropdown clicked");
+          });
+        }
+      });
+    </script>
+
+    <script id="vehicleYearDropdown">
+      document.addEventListener("DOMContentLoaded", function () {
+        // This would be expanded to include actual dropdown functionality
+        const vehicleYearDropdown = document.querySelector(
+          '[for="vehicle-year"] + div',
+        );
+        if (vehicleYearDropdown) {
+          vehicleYearDropdown.addEventListener("click", function () {
+            // Dropdown toggle logic would go here
+            console.log("Vehicle year dropdown clicked");
+          });
+        }
+      });
+    </script>
+
+    <script id="coverageTypeSelection">
+      document.addEventListener("DOMContentLoaded", function () {
+        const coverageOptions = document.querySelectorAll(
+          "#coverage .grid.sm\\:grid-cols-3 > div",
+        );
+
+        coverageOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            // Remove selected state from all options
+            coverageOptions.forEach((opt) => {
+              opt.classList.remove("border-primary", "bg-blue-50");
+              opt.classList.add(
+                "border-gray-200",
+                "hover:border-primary",
+                "hover:bg-blue-50",
+              );
+
+              const radio = opt.querySelector(".w-5.h-5.rounded-full");
+              if (radio) {
+                radio.classList.remove("border-primary");
+                radio.classList.add("border-gray-300");
+
+                const innerDot = radio.querySelector("div");
+                if (innerDot) {
+                  innerDot.remove();
+                }
+              }
+            });
+
+            // Add selected state to clicked option
+            this.classList.remove(
+              "border-gray-200",
+              "hover:border-primary",
+              "hover:bg-blue-50",
+            );
+            this.classList.add("border-primary", "bg-blue-50");
+
+            const radio = this.querySelector(".w-5.h-5.rounded-full");
+            if (radio) {
+              radio.classList.remove("border-gray-300");
+              radio.classList.add("border-primary");
+
+              if (!radio.querySelector("div")) {
+                const innerDot = document.createElement("div");
+                innerDot.className = "w-2.5 h-2.5 rounded-full bg-primary";
+                radio.appendChild(innerDot);
+              }
+            }
+          });
+        });
+      });
+    </script>
+
+    <script id="mobileMenu">
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.querySelector(".md\\:hidden.w-10.h-10");
+
+        if (menuButton) {
+          menuButton.addEventListener("click", function () {
+            // Mobile menu toggle logic would go here
+            console.log("Mobile menu button clicked");
+          });
+        }
+      });
+    </script>
+
+    <script id="liveChatWidget">
+      document.addEventListener("DOMContentLoaded", function () {
+        const chatButton = document.querySelector(".fixed.bottom-6.right-6 button");
+
+        if (chatButton) {
+          chatButton.addEventListener("click", function () {
+            // Live chat widget toggle logic would go here
+            console.log("Chat button clicked");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
